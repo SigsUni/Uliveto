@@ -55,7 +55,7 @@
     				<h6 class = "price">Prezzo €<%= p.getPrice() %></h6>
     				<h6 class = "category">Categoria: <%= p.getCategory() %></h6>
     				<div class = "mt-3 justify-content -between ">
-    					<a href="#" class="btn btn-primary col-md-8">Aggiungi al carrello</a>
+    					<a href="add-to-cart?id=<%= p.getId() %>" class="btn btn-dark col-md-8 ">Aggiungi al carrello</a>
     					<a href="#" class="btn btn-primary ">Compra</a>
     				</div>
     				<div class = "mt-3 justify-content -between ">
@@ -102,7 +102,7 @@
     				<h6 class = "price">Prezzo €<%= p.getPrice() %></h6>
     				<h6 class = "category">Categoria: <%= p.getCategory() %></h6>
     				<div class = "mt-3 justify-content -between ">
-    					<a href="#" class="btn btn-primary col-md-8">Aggiungi al carrello</a>
+    					<a href="#" class="btn-dark col-md-8">Aggiungi al carrello</a>
     					<a href="#" class="btn btn-primary ">Compra</a>
     				</div>
     				<div class = "mt-3 justify-content -between ">
