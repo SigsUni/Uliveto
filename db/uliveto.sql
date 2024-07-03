@@ -88,7 +88,7 @@ INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`, `prez
 INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`, `prezzo`, `immagine`) VALUES (4, 'Confezione Olio Extravergine di oliva 250ml', 'oli','SCATOLA DA 6 BOTTIGLIE DI VETRO DA 250 ML CON TAPPO ANTIRABBOCCO ( TOT 3 LITRI )','66' ,'olio_extravergine_oliva_250_scatola.jpg');
 INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`, `prezzo`, `immagine`) VALUES (5, 'Confezione Olio Extravergine di oliva 500ml', 'oli','SCATOLA DA 6 BOTTIGLIE DI VETRO DA 250 ML CON TAPPO ANTIRABBOCCO ( TOT 3 LITRI )','72' ,'olio_extravergine_oliva_500_scatola.jpg');
 INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`, `prezzo`, `immagine`) VALUES (6, 'Ceci secchi 500g', 'ceci','Tipicità di pregio del patrimonio agroalimentare del Parco Nazionale de Cilento. ','6' ,'ceci_500.jpg');
-INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`, `prezzo`, `immagine`) VALUES (6, 'Ceci secchi 1Kg', 'ceci','Tipicità di pregio del patrimonio agroalimentare del Parco Nazionale de Cilento. ','11' ,'ceci_500.jpg');
+INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`, `prezzo`, `immagine`) VALUES (7, 'Ceci secchi 1Kg', 'ceci','Tipicità di pregio del patrimonio agroalimentare del Parco Nazionale de Cilento. ','11' ,'ceci_500.jpg');
 
 COMMIT;
 
