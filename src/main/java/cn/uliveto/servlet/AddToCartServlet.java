@@ -1,5 +1,6 @@
 package cn.uliveto.servlet;
 
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class AddToCartServlet extends HttpServlet {
 			{
 				cartList.add(cm);
 				session.setAttribute("cart-list", cartList);
-				out.println("session created and addedd the list");
+				response.sendRedirect("index.jsp");
 			}
 			else
 			{

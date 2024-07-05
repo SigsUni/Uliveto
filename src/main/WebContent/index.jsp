@@ -83,7 +83,7 @@
 	</div>
 	
 	
-	<div class = "card-header my-3">I NOSTRI OLI</div>
+	<div class = "card-header my-3">I NOSTRI CECI</div>
 	
 	<div class="row g-3">
 	
