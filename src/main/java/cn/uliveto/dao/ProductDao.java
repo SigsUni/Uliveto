@@ -36,7 +36,7 @@ public class ProductDao {
 				row.setName(rs.getString("nome"));
 				row.setCategory(rs.getString("categoria"));
 				row.setDescription(rs.getString("descrizione"));
-				row.setPrice(rs.getString("prezzo"));
+				row.setPrice(rs.getDouble("prezzo"));
 				row.setImage(rs.getString("immagine"));
 				
 				products.add(row);
@@ -47,5 +47,49 @@ public class ProductDao {
 			e.printStackTrace();
 		}
 		return products;
+	}
+	
+	
+	public List<Cart> getCartProducts(ArrayList<Cart> cartList)
+	{
+		List<Cart> products = new ArrayList<Cart>();
+		
+		try {
+			
+			if(cartList.size()>0)
+			{
+				for(Cart item:cartList)
+				{
+					query = "select * from prodotti where id=?";
+					pst = this.con.prepareStatement(query);
+					pst.setInt(1,item.getId());
+					rs = pst.executeQuery();
+					
+					while(rs.next())
+					{
+						Cart row = new Cart();
+						row.setId(rs.getInt("id"));
+						row.setName(rs.getString("nome"));
+						row.setCategory(rs.getString("categoria"));
+						row.setDescription(rs.getString("descrizione"));
+						row.setPrice(rs.getDouble("prezzo")*item.getQuantity());
+						row.setImage(rs.getString("immagine"));
+						row.setQuantity(item.getQuantity());
+						
+						products.add(row);
+					}
+					
+				}
+			}
+			
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+		
+		return products;
+		
 	}
 }

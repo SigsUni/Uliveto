@@ -60,7 +60,15 @@ public class LoginServlet extends HttpServlet {
 				{
 					out.print("user login");
 					request.getSession().setAttribute("auth",user);
-					response.sendRedirect("index.jsp");
+					
+					if(user.getId() == 2)
+					{
+						response.sendRedirect("admin_index.jsp");
+					}
+					else
+					{
+						response.sendRedirect("index.jsp");
+					}
 					
 				}
 				else

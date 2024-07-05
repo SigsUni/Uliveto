@@ -6,7 +6,7 @@ public class Prodotto {
 		private String name;
 		private String category;
 		private String description;
-		private String price;
+		private Double price;
 		private String image;
 		
 		public Prodotto()
@@ -14,7 +14,7 @@ public class Prodotto {
 			
 		}
 		
-		public Prodotto(int id, String name, String category, String description, String price,  String image){
+		public Prodotto(int id, String name, String category, String description, Double price,  String image){
 			
 			this.id = id;
 			this.name = name;
@@ -34,7 +34,7 @@ public class Prodotto {
 			return name;
 		}
 		
-		public String getPrice()
+		public Double getPrice()
 		{
 			return price;
 		}
@@ -69,7 +69,7 @@ public class Prodotto {
 			this.category= category;
 		}
 		
-		public void setPrice(String price)
+		public void setPrice(Double price)
 		{
 			this.price = price;
 		}

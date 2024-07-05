@@ -5,7 +5,7 @@
 
 
 
-  <a class="navbar-brand" href="index.jsp">L'Uliveto</a>
+  <a class="navbar-brand" href="index.jsp">ADMIN PAGE</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -26,15 +26,9 @@
       		</li>
       			
       		<li class="nav-item">
-            <a class="nav-link" href="log-out">Logout</a>
+            <a class="nav-link" href="log-out">EXIT-ADMIN-MODE</a>
             </li>
-      	<% }
-      	else
-      	{%>
-      		<li class="nav-item active">
-            <a class="nav-link" href="login.jsp">Login</a>
-            </li>
-      	<%}%>
+      	<% }%>
     </ul>
   </div>
   </div>

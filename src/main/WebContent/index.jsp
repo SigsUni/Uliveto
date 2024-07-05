@@ -1,7 +1,7 @@
 <%@page import = "cn.uliveto.dao.ProductDao" %>
 <%@page import = "cn.uliveto.connection.DbCon" %>
 <%@page import ="cn.uliveto.model.*" %>
-<%@page import = "java.util.List" %>
+<%@page import = "java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -15,6 +15,13 @@
   
   	ProductDao pd = new ProductDao(DbCon.getConnection());
   	List<Prodotto> products = pd.getAllProducts();
+  	
+  	ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+  	
+  	if(cart_list!=null)
+  	{	
+  		request.setAttribute("cart_list",cart_list);
+  	}
   	
   	
   %>  
@@ -102,7 +109,7 @@
     				<h6 class = "price">Prezzo €<%= p.getPrice() %></h6>
     				<h6 class = "category">Categoria: <%= p.getCategory() %></h6>
     				<div class = "mt-3 justify-content -between ">
-    					<a href="add-to-cart?id=<%= p.getId() %>" class="btn-dark col-md-8">Aggiungi al carrello</a>
+    					<a href="add-to-cart?id=<%= p.getId() %>" class="btn btn-dark col-md-8">Aggiungi al carrello</a>
     					<a href="#" class="btn btn-primary ">Compra</a>
     				</div>
     				<div class = "mt-3 justify-content -between ">

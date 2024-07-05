@@ -1,5 +1,7 @@
 <%@page import ="cn.uliveto.connection.DbCon"%>
 <%@page import ="cn.uliveto.model.*" %>
+<%@page import = "cn.uliveto.dao.*" %>
+<%@page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   
@@ -10,6 +12,17 @@
   		request.setAttribute("auth",auth);
   	}
   
+  	
+  	ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+  	List<Cart> cartProduct = null;
+  	
+  	if(cart_list!=null)
+  	{
+  		ProductDao pDao = new ProductDao(DbCon.getConnection());
+  		cartProduct = pDao.getCartProducts(cart_list);
+  		
+  		request.setAttribute("cart_list",cart_list);
+  	}
   %>  
   
 <!DOCTYPE html>
@@ -55,33 +68,46 @@
 	</thead>
 
 <tbody>
-	
-	<tr>
-	
-		<td>Olio extravergine d'oliva 250ml</td>
-		<td>Oli</td>
-		<td>€6</td>
-		<td>
-		
-				<form action="" method="POST" class="form-inline">
-			
-				<input type="hidden" name="id" value="1" class="form-input">
-				<div class="form-group d-flex justify-content-between">
-				<a class="btn btn-sm btn-decre" href="#"><i class="fas fa-minus-square"></i></a>
-				<input type="text" name ="quantity" class="form-control" value="1" readonly>
-				<a class="btn btn-sm btn-incre" href="#"><i class="fas fa-plus-square"></i></a>
+	<% if(cart_list!=null) 
+		{
+			for(Cart c:cartProduct)
+			{
+				%>
+				<tr>
 				
+				<td><%= c.getName()%></td>
+				<td><%= c.getCategory()%></td>
+				<td>€<%= c.getPrice()%></td>
+				<td>
 				
-				</div>
+						<form action="" method="POST" class="form-inline">
+					
+						<input type="hidden" name="id" value="<%= c.getId() %>" class="form-input">
+						<div class="form-group d-flex justify-content-between">
+						<a class="btn btn-sm btn-decre" href="#"><i class="fas fa-minus-square"></i></a>
+						<input type="text" name ="quantity" class="form-control" value="1" readonly>
+						<a class="btn btn-sm btn-incre" href="#"><i class="fas fa-plus-square"></i></a>
+						
+						
+						</div>
+					
+					
+						</form>
+				</td>
+				<td>
+						<a class= "btn btn-sm btn-danger" href ="">Rimuovi</a>
+				</td>
 			
-			
-				</form>
-		</td>
-		<td>
-				<a class= "btn btn-sm btn-danger" href ="">Rimuovi</a>
-		</td>
+			</tr>
+			<% 
+			}
+		}
 	
-	</tr>
+	
+	
+	
+	%>
+	
 
 </tbody>
 
