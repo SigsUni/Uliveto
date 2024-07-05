@@ -97,7 +97,7 @@
 						</form>
 				</td>
 				<td>
-						<a class= "btn btn-sm btn-danger" href ="">Rimuovi</a>
+						<a class= "btn btn-sm btn-danger" href ="remove-from-cart?id=<%=c.getId()%>">Rimuovi</a>
 				</td>
 			
 			</tr>
