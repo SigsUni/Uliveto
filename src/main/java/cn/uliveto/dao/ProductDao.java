@@ -124,38 +124,43 @@ public class ProductDao {
 		return sum;
 	}
 	
-	public boolean CheckQuantity(ArrayList<Cart> cartList)
+	public boolean CheckQuantity(int Id, int quantity)
 	{
-		boolean result = true;
+		boolean result = false;
+		boolean check = false;
 		
-		try {
-			if(cartList.size() >0)
+		try
+		{
+			query = "select stock from prodotti where id=?";
+			pst = this.con.prepareStatement(query);
+			pst.setInt(1, Id);
+			rs = pst.executeQuery();
+			
+			while(rs.next())
 			{
-				for(Cart item:cartList)
-				{
-					query = "select stock from prodotti where id=?";
-					pst = this.con.prepareStatement(query);
-					pst.setInt(1, item.getId());
-					rs = pst.executeQuery();
+				check = true;
+				int Stock_row = rs.getInt("stock");
 					
-					while(rs.next())
+				if(Stock_row != 0)
+				{
+					if(quantity<=Stock_row)
 					{
-						if(rs.getInt("stock") < item.getQuantity())
-						{
-							result = false;
-							break;
-						}
+						result = true;
 					}
 				}
-			}	
+			}
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
 		
-		return result;
+		if(result == false || check ==false)
+		{
+			return false;
+		}
 		
+		return true;
 		
 	}
 	
