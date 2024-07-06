@@ -16,6 +16,8 @@
   	ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
   	List<Cart> cartProduct = null;
   	
+  	
+  	
   	if(cart_list!=null)
   	{
   		ProductDao pDao = new ProductDao(DbCon.getConnection());
@@ -47,6 +49,8 @@
 		box-shadow: none;
 		font-size: 1.7rem;
 	}
+	
+	
 
 </style>
 </head>
@@ -82,16 +86,21 @@
 				<td>€<%= c.getPrice()%></td>
 				<td>
 				
-						<form action="" method="POST" class="form-inline">
+						<form action="order-now" method="POST" class="form-inline">
 					
 						<input type="hidden" name="id" value="<%= c.getId() %>" class="form-input">
-						<div class="form-group d-flex justify-content-between">
+						<div class="form-group d-flex justify-content-between w-50">
 						<a class="btn btn-sm btn-decre" href="quantity-inc-dec?action=dec&id=<%=c.getId()%>"><i class="fas fa-minus-square"></i></a>
-						<input type="text" name ="quantity" class="form-control" value="<%=c.getQuantity() %>" readonly>
+						<input type="text" name ="quantity" class="form-control w-50" value="<%=c.getQuantity() %>" readonly>
+						<%if(c.getStock()>c.getQuantity()){%>
 						<a class="btn btn-sm btn-incre" href="quantity-inc-dec?action=inc&id=<%=c.getId()%>"><i class="fas fa-plus-square"></i></a>
-						
-						
 						</div>
+						<%}else{ %>
+						<a class="btn btn-sm btn-incre 2" href="#"><i class="fas fa-plus-square"></i></a>
+						</div>
+						<%} %>
+						
+						<button type = "submit" class="btn btn-primary btn-sm" >Acquista</button>
 					
 					
 						</form>

@@ -64,8 +64,8 @@
     				<h6 class = "stock">Stock: <% if(p.getStock()!=0){%> <%= p.getStock()%> <%}else{ %><b><font color="red" >Out of Stock</font></b><%} %></h6>
     				<div class = "mt-3 justify-content -between ">
     				<%if(p.getStock()!=0){ %>
-    					<a href="add-to-cart?id=<%= p.getId() %>&stock=<%= p.getStock() %>" class="btn btn-dark col-md-8 ">Aggiungi al carrello</a>
-    					<a href="#" class="btn btn-primary ">Compra</a>
+    					<a href="add-to-cart?id=<%= p.getId() %>" class="btn btn-dark col-md-8 ">Aggiungi al carrello</a>
+    					<a href="order-now?quantity=1&id=<%=p.getId()%>" class="btn btn-primary ">Compra</a>
     				</div>
     				<div class = "mt-3 justify-content -between ">
     				<p class="card-text"><%=p.getDescription() %></p>

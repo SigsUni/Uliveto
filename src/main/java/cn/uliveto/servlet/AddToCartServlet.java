@@ -3,7 +3,11 @@ package cn.uliveto.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
+
+import cn.uliveto.connection.DbCon;
+import cn.uliveto.dao.ProductDao;
 import cn.uliveto.model.*;
 
 import javax.servlet.ServletException;
@@ -33,55 +37,59 @@ public class AddToCartServlet extends HttpServlet {
 			ArrayList<Cart> cartList = new ArrayList<>();
 			
 			int id = Integer.parseInt(request.getParameter("id"));
-			int stock = Integer.parseInt(request.getParameter("stock"));
-			
+			ProductDao productdao = new ProductDao(DbCon.getConnection());
 			Cart cm = new Cart();
 			cm.setId(id);
 			cm.setQuantity(1);
-			cm.setStock_cart(stock);
 			
 			
 			HttpSession session = request.getSession();
 			ArrayList<Cart> cart_list= (ArrayList<Cart>) session.getAttribute("cart-list");
 			
-			if(cart_list ==null)
+			boolean check;
+			check = productdao.CheckStock(id);
+			
+			if(!check)
 			{
-				cartList.add(cm);
-				session.setAttribute("cart-list", cartList);
-				response.sendRedirect(getServletInfo());
+				response.sendRedirect("index.jsp");
 			}
 			else
 			{
-				cartList = cart_list;
 				
-				boolean exist = false;
-				
-				for(Cart c:cartList)
+				if(cart_list ==null)
 				{
-					if(c.getId() == id)
-					{
-						exist = true;
-						//out.println("<h3 style='color:crimson; text-align:center'> Oggetto già presente nel carrello <a href = 'cart.jsp'> Go to cart page </a>");
-						response.sendRedirect("error_cart.jsp");
-					}
+					cartList.add(cm);
+					session.setAttribute("cart-list", cartList);
+					response.sendRedirect(getServletInfo());
 				}
-				
-				if(!exist)
+				else
 				{
-					if(cm.getStock_cart() !=0)
+					cartList = cart_list;
+					
+					boolean exist = false;
+				
+					for(Cart c:cartList)
+					{
+						if(c.getId() == id)
+						{
+							exist = true;
+							//out.println("<h3 style='color:crimson; text-align:center'> Oggetto già presente nel carrello <a href = 'cart.jsp'> Go to cart page </a>");
+							response.sendRedirect("error_cart.jsp");
+						}
+					}
+				
+					if(!exist)
 					{
 						cartList.add(cm);
 						response.sendRedirect("index.jsp");
 					}
-					else
-					{
-						response.sendRedirect("index.jsp");
-					}
-					}
-					
 				}
 			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+	}
 
 	
 
