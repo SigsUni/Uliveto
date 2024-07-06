@@ -33,10 +33,12 @@ public class AddToCartServlet extends HttpServlet {
 			ArrayList<Cart> cartList = new ArrayList<>();
 			
 			int id = Integer.parseInt(request.getParameter("id"));
+			int stock = Integer.parseInt(request.getParameter("stock"));
 			
 			Cart cm = new Cart();
 			cm.setId(id);
 			cm.setQuantity(1);
+			cm.setStock_cart(stock);
 			
 			
 			HttpSession session = request.getSession();
@@ -46,7 +48,7 @@ public class AddToCartServlet extends HttpServlet {
 			{
 				cartList.add(cm);
 				session.setAttribute("cart-list", cartList);
-				response.sendRedirect("index.jsp");
+				response.sendRedirect(getServletInfo());
 			}
 			else
 			{
@@ -66,13 +68,22 @@ public class AddToCartServlet extends HttpServlet {
 				
 				if(!exist)
 				{
-					cartList.add(cm);
-					response.sendRedirect("index.jsp");
+					if(cm.getStock_cart() !=0)
+					{
+						cartList.add(cm);
+						response.sendRedirect("index.jsp");
+					}
+					else
+					{
+						response.sendRedirect("index.jsp");
+					}
+					}
+					
 				}
 			}
 		}
 
-	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

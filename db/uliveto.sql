@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS `uliveto`.`prodotti` (
   `nome` VARCHAR(45) NOT NULL,
   `descrizione` LONGTEXT NOT NULL,
   `categoria` VARCHAR(200) NOT NULL,
+  `stock` INTEGER NOT NULL,
   `prezzo` DOUBLE NOT NULL,
   `immagine` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`, `nome`))
@@ -73,6 +74,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 START TRANSACTION;
 USE `uliveto`;
 INSERT INTO `uliveto`.`utenti` (`id`, `nome`, `email`, `password`) VALUES (1, 'gabriele', 'gabriele.cicalese2004@gmail.com', '1234');
+INSERT INTO `uliveto`.`utenti` (`id`, `nome`, `email`, `password`) VALUES (2, 'ADMIN', 'admin@gmail.com', 'admin');
 
 COMMIT;
 
@@ -82,13 +84,13 @@ COMMIT;
 
 START TRANSACTION;
 USE `uliveto`;
-INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`, `prezzo`, `immagine`) VALUES (1, 'Olio Extravergine di oliva 250ml', 'oli','BOTTIGLIA DI VETRO DA 250 ML CON TAPPO ANTIRABBOCCO','6', 'olio_extravergine_oliva_250.jpg');
-INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`, `prezzo`, `immagine`) VALUES (2, 'Olio Extravergine di oliva 500ml', 'oli','BOTTIGLIA DI VETRO DA 500 ML CON TAPPO ANTIRABBOCCO','11' ,'olio_extravergine_oliva_500.jpg');
-INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`, `prezzo`, `immagine`) VALUES (3, 'Olio Extravergine di oliva 5L', 'oli','FUSTINO DA 5 LITRI OLIO EXTRAVERGINE DI OLIVA','60' ,'olio_extravergine_oliva_5lt.jpg');
-INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`, `prezzo`, `immagine`) VALUES (4, 'Confezione Olio Extravergine di oliva 250ml', 'oli','SCATOLA DA 6 BOTTIGLIE DI VETRO DA 250 ML CON TAPPO ANTIRABBOCCO ( TOT 3 LITRI )','66' ,'olio_extravergine_oliva_250_scatola.jpg');
-INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`, `prezzo`, `immagine`) VALUES (5, 'Confezione Olio Extravergine di oliva 500ml', 'oli','SCATOLA DA 6 BOTTIGLIE DI VETRO DA 250 ML CON TAPPO ANTIRABBOCCO ( TOT 3 LITRI )','72' ,'olio_extravergine_oliva_500_scatola.jpg');
-INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`, `prezzo`, `immagine`) VALUES (6, 'Ceci secchi 500g', 'ceci','Tipicità di pregio del patrimonio agroalimentare del Parco Nazionale de Cilento. ','6' ,'ceci_500.jpg');
-INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`, `prezzo`, `immagine`) VALUES (7, 'Ceci secchi 1Kg', 'ceci','Tipicità di pregio del patrimonio agroalimentare del Parco Nazionale de Cilento. ','11' ,'ceci_500.jpg');
+INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`,`stock`,`prezzo`, `immagine`) VALUES (1, 'Olio Extravergine di oliva 250ml', 'oli','BOTTIGLIA DI VETRO DA 250 ML CON TAPPO ANTIRABBOCCO',0,'6', 'olio_extravergine_oliva_250.jpg');
+INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`,`stock`, `prezzo`, `immagine`) VALUES (2, 'Olio Extravergine di oliva 500ml', 'oli','BOTTIGLIA DI VETRO DA 500 ML CON TAPPO ANTIRABBOCCO',20,'11' ,'olio_extravergine_oliva_500.jpg');
+INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`,`stock`, `prezzo`, `immagine`) VALUES (3, 'Olio Extravergine di oliva 5L', 'oli','FUSTINO DA 5 LITRI OLIO EXTRAVERGINE DI OLIVA','20' ,'60','olio_extravergine_oliva_5lt.jpg');
+INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`,`stock`, `prezzo`, `immagine`) VALUES (4, 'Confezione Olio Extravergine di oliva 250ml', 'oli','SCATOLA DA 6 BOTTIGLIE DI VETRO DA 250 ML CON TAPPO ANTIRABBOCCO ( TOT 3 LITRI )',20,'66' ,'olio_extravergine_oliva_250_scatola.jpg');
+INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`,`stock`, `prezzo`, `immagine`) VALUES (5, 'Confezione Olio Extravergine di oliva 500ml', 'oli','SCATOLA DA 6 BOTTIGLIE DI VETRO DA 250 ML CON TAPPO ANTIRABBOCCO ( TOT 3 LITRI )',20,'72' ,'olio_extravergine_oliva_500_scatola.jpg');
+INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`,`stock`, `prezzo`, `immagine`) VALUES (6, 'Ceci secchi 500g', 'ceci','Tipicità di pregio del patrimonio agroalimentare del Parco Nazionale de Cilento. ',20,'6' ,'ceci_500.jpg');
+INSERT INTO `uliveto`.`prodotti` (`id`, `nome`, `categoria`,`descrizione`,`stock`, `prezzo`, `immagine`) VALUES (7, 'Ceci secchi 1Kg', 'ceci','Tipicità di pregio del patrimonio agroalimentare del Parco Nazionale de Cilento. ',20,'11' ,'ceci_500.jpg');
 
 COMMIT;
 
