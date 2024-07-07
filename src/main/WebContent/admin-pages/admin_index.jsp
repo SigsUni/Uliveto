@@ -116,8 +116,8 @@
     				<h6 class = "stock">Stock: <% if(p.getStock()!=0){%> <%= p.getStock()%> <%}else{ %><b><font color="red" >Out of Stock</font></b><%} %></h6>
     				<div class = "mt-3 justify-content -between gy-3">
     				
-    					<a href="add-to-cart?id=<%= p.getId() %>" class="btn btn-dark col-md-8 gy-3">ELIMINA STOCK</a>
-    					<a href="order-now?quantity=1&id=<%=p.getId()%>" class="btn btn-danger col-md-8 gy-3">AGGIUNGI STOCK</a>
+    					<a href="/uliveto/add-stock?id=<%= p.getId() %>" class="btn btn-dark col-md-8 gy-3">ELIMINA STOCK</a>
+    					<a href="/uliveto/delete-stock?id=<%=p.getId()%>" class="btn btn-danger col-md-8 gy-3">AGGIUNGI STOCK</a>
     					<a href="add-to-cart?id=<%= p.getId() %>" class="btn btn-danger col-md-8 gy-3">ELIMINA PRODOTTO</a>
     				
     				
