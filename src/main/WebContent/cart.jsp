@@ -10,8 +10,13 @@
   	if(auth!=null)
   	{
   		request.setAttribute("auth",auth);
+  		
+  		if(auth.getId() == 2)
+  	  	{
+  	  		response.sendRedirect("/uliveto/admin-pages/admin_index.jsp");
+  	  	}
   	}
-  
+  	
   	
   	ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
   	List<Cart> cartProduct = null;

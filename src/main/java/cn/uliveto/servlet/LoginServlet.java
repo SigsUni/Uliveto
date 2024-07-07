@@ -61,7 +61,7 @@ public class LoginServlet extends HttpServlet {
 					
 					if(user.getId() == 2)
 					{
-						response.sendRedirect("admin_index.jsp");
+						response.sendRedirect("/uliveto/admin-pages/admin_index.jsp");
 					}
 					else
 					{

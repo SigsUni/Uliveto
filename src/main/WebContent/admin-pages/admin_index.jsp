@@ -7,28 +7,23 @@
     
     
     <%Utente auth = (Utente)request.getSession().getAttribute("auth"); 
-    
   	
   	if(auth!=null)
   	{
   		request.setAttribute("auth",auth);
   		
-  		if(auth.getId() == 2)
-  	  	{
-  	  		response.sendRedirect("/uliveto/admin-pages/admin_index.jsp");
-  	  	}
+  		if(auth.getId() != 2)
+  		{
+  			response.sendRedirect("/uliveto/index.jsp");
+  		}
   	}
-  
+  	else
+  	{
+  		response.sendRedirect("index.jsp");
+  	}
+  	
   	ProductDao pd = new ProductDao(DbCon.getConnection());
   	List<Prodotto> products = pd.getAllProducts();
-  	
-  	ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-  	
-  	if(cart_list!=null)
-  	{	
-  		request.setAttribute("cart_list",cart_list);
-  	}
-  	
   	
   %>  
   
@@ -37,15 +32,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Uliveto</title>
-<%@include file = "includes/header.jsp" %>
+  <%@include file = "admin_includes/header.jsp" %>
 </head>
 <body>
-<%@include file = "includes/navbar.jsp" %>
+<%@include file = "admin_includes/navbar.jsp" %>
 
-<!-- codice qui tra header e footer -->
-
-
-	<div class = "container">
+<div class = "container">
 	<% if(auth!=null ){%>
 	<br>
 	<h4><p>Benvenuto <%= auth.getNome() %></p></h4>
@@ -67,27 +59,20 @@
 			<div class="col-12 col-md-6 col-lg-4 gy-3">
 			<div class="card w-100" style="width: 8rem;">
 				<a href="#">
-  				<img class="card-img-top" src="product-images/<%= p.getImage() %>" alt="Card image cap"></a>
+  				<img class="card-img-top" src="/uliveto/product-images/<%= p.getImage() %>" alt="Card image cap"></a>
   					<div class="card-body">
     				<h5 class="card-title"><%= p.getName() %></h5>
     				<h6 class = "price">Prezzo €<%= p.getPrice() %></h6>
     				<h6 class = "category">Categoria: <%= p.getCategory() %></h6>
     				<h6 class = "stock">Stock: <% if(p.getStock()!=0){%> <%= p.getStock()%> <%}else{ %><b><font color="red" >Out of Stock</font></b><%} %></h6>
     				<div class = "mt-3 justify-content -between ">
-    				<%if(p.getStock()!=0){ %>
-    					<a href="add-to-cart?id=<%= p.getId() %>" class="btn btn-dark col-md-8 ">Aggiungi al carrello</a>
-    					<a href="order-now?quantity=1&id=<%=p.getId()%>" class="btn btn-primary ">Compra</a>
     				</div>
+    					<a href="/uliveto/add-stock?id=<%= p.getId() %>" class="btn btn-dark col-md-8 ">AGGIUNGI STOCK</a>
+    					<a href="/uliveto/delete-stock?id=<%=p.getId()%>" class="btn btn-danger col-md-8 ">ELIMINA STOCK</a>
+    					<a href="order-now?id=<%=p.getId()%>" class="btn btn-danger col-md-8 ">ELIMINA PRODOTTO</a>
     				<div class = "mt-3 justify-content -between ">
     				<p class="card-text"><%=p.getDescription() %></p>
     				</div>
-    				<%}else{ %>
-    				
-    				</div>
-    				<div class = "mt-3 justify-content -between ">
-    				<p class="card-text"><%=p.getDescription() %></p>
-    				</div>
-    				<%} %>
     				
   				</div>
 			</div>
@@ -123,27 +108,20 @@
 			<div class="col-12 col-md-6 col-lg-4 gy-3">
 			<div class="card w-100" style="width: 8rem;">
 				<a href="#">
-  				<img class="card-img-top" src="product-images/<%= p.getImage() %>" alt="Card image cap"></a>
+  				<img class="card-img-top" src="/uliveto/product-images/<%= p.getImage() %>" alt="Card image cap"></a>
   					<div class="card-body">
     				<h5 class="card-title"><%= p.getName() %></h5>
     				<h6 class = "price">Prezzo €<%= p.getPrice() %></h6>
     				<h6 class = "category">Categoria: <%= p.getCategory() %></h6>
     				<h6 class = "stock">Stock: <% if(p.getStock()!=0){%> <%= p.getStock()%> <%}else{ %><b><font color="red" >Out of Stock</font></b><%} %></h6>
-    				<div class = "mt-3 justify-content -between ">
-    				<%if(p.getStock()!=0){ %>
-    					<a href="add-to-cart?id=<%= p.getId() %>" class="btn btn-dark col-md-8 ">Aggiungi al carrello</a>
-    					<a href="order-now?quantity=1&id=<%=p.getId()%>" class="btn btn-primary ">Compra</a>
-    				</div>
-    				<div class = "mt-3 justify-content -between ">
-    				<p class="card-text"><%=p.getDescription() %></p>
-    				</div>
-    				<%}else{ %>
+    				<div class = "mt-3 justify-content -between gy-3">
+    				
+    					<a href="add-to-cart?id=<%= p.getId() %>" class="btn btn-dark col-md-8 gy-3">ELIMINA STOCK</a>
+    					<a href="order-now?quantity=1&id=<%=p.getId()%>" class="btn btn-danger col-md-8 gy-3">AGGIUNGI STOCK</a>
+    					<a href="add-to-cart?id=<%= p.getId() %>" class="btn btn-danger col-md-8 gy-3">ELIMINA PRODOTTO</a>
+    				
     				
     				</div>
-    				<div class = "mt-3 justify-content -between ">
-    				<p class="card-text"><%=p.getDescription() %></p>
-    				</div>
-    				<%} %>
     				
   				</div>
 			</div>
@@ -158,6 +136,8 @@
 	</div>
 
 
-<%@include file = "includes/footer.jsp" %>
+	
+
+ <%@include file = "admin_includes/footer.jsp" %>
 </body>
 </html>

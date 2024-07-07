@@ -11,6 +11,11 @@
   	{
   		request.setAttribute("auth",auth);
   		response.sendRedirect("index.jsp");
+  		
+  		if(auth.getId() == 2)
+  	  	{
+  	  		response.sendRedirect("/uliveto/admin-pages/admin_index.jsp");
+  	  	}
   	}
   	
   	ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");

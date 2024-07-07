@@ -11,20 +11,20 @@
     List<Ordine> orders = null;
     
     
+   
+  
     
   	if(auth!=null)
   	{
   		request.setAttribute("auth",auth);
   		
-  		if(auth.getId() == 2)
-  	  	{
-  	  		response.sendRedirect("/uliveto/admin-pages/admin_index.jsp");
-  	  	}
+  		if(auth.getId() != 2)
+  		{
+  			response.sendRedirect("/uliveto/index.jsp");
+  		}
   		
   		OrderDao orderDao = new OrderDao(DbCon.getConnection());
   		orders = new OrderDao(DbCon.getConnection()).userOrders(auth.getId());
-  		
-  		
   		
   	}
   	else
