@@ -8,6 +8,7 @@ import java.util.Date;
 
 import cn.uliveto.connection.DbCon;
 import cn.uliveto.dao.OrderDao;
+import cn.uliveto.dao.ProductDao;
 import cn.uliveto.model.*;
 
 import javax.servlet.ServletException;
@@ -42,6 +43,8 @@ public class CheckOutServlet extends HttpServlet {
 			Utente auth = (Utente) request.getSession().getAttribute("auth");
 			
 			//checkout e cart-list
+			ProductDao productdao = new ProductDao(DbCon.getConnection());
+			
 			
 			
 			if(cart_list!=null && auth!=null)
@@ -59,6 +62,9 @@ public class CheckOutServlet extends HttpServlet {
 					OrderDao oDao = new OrderDao(DbCon.getConnection());
 					
 					boolean result = oDao.insertOrder(order);
+					int stock_iniziale = productdao.getStockbyId(c.getId());
+					stock_iniziale = stock_iniziale - c.getQuantity();
+					productdao.updateStock(c.getId(), stock_iniziale);
 					
 					if(!result)
 					{

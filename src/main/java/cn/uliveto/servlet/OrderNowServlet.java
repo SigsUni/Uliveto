@@ -64,6 +64,14 @@ public class OrderNowServlet extends HttpServlet {
 				
 					OrderDao orderdao = new OrderDao(DbCon.getConnection());
 					boolean result = orderdao.insertOrder(orderModel);
+					
+					if(productQuantity ==1)
+					{
+						int stock_iniziale = productdao.getStockbyId(Integer.parseInt(productId));
+						stock_iniziale = stock_iniziale - 1;
+						productdao.updateStock(Integer.parseInt(productId), stock_iniziale);
+					}
+					
 				
 					if(result)
 					{
@@ -75,6 +83,13 @@ public class OrderNowServlet extends HttpServlet {
 							{
 								if(c.getId() == Integer.parseInt(productId))
 								{
+									if(productQuantity !=1)
+									{
+										int stock_iniziale = productdao.getStockbyId(c.getId());
+										stock_iniziale = stock_iniziale - c.getQuantity();
+										productdao.updateStock(c.getId(), stock_iniziale);
+									}
+									
 									cart_list.remove(cart_list.indexOf(c));
 									break;
 								}

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import cn.uliveto.connection.DbCon;
 import cn.uliveto.dao.OrderDao;
+import cn.uliveto.dao.ProductDao;
 
 /**
  * Servlet implementation class CancelOrderServlet
@@ -31,11 +32,24 @@ public class CancelOrderServlet extends HttpServlet {
 			if(id!=null)
 			{
 				OrderDao orderDao = new OrderDao(DbCon.getConnection());
-				orderDao.cancelOrder(Integer.parseInt(id));
+				ProductDao productdao = new ProductDao(DbCon.getConnection());
 				
-				
-				
-				
+				int id_prodotto = orderDao.getIdprodotto(Integer.parseInt(id));
+				int quantity = orderDao.getQuantity(Integer.parseInt(id));
+				if(id_prodotto == 0)
+				{
+					response.sendRedirect("index.jsp");
+				}
+				else
+				{
+					int stock_iniziale = productdao.getStockbyId(id_prodotto);
+					stock_iniziale = stock_iniziale + quantity;
+					
+					
+					productdao.updateStock(id_prodotto, stock_iniziale);
+					orderDao.cancelOrder(Integer.parseInt(id));
+					
+				}		
 			}
 			response.sendRedirect("orders.jsp");
 		} catch (Exception e) {

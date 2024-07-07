@@ -107,5 +107,51 @@ public class OrderDao {
 			e.printStackTrace();
 		}
 	}
+	
+	public int getIdprodotto(int id)
+	{
+		try
+		{
+			query = "select * from ordini where o_id=?";
+			pst = this.con.prepareStatement(query);
+			pst.setInt(1, id);
+			
+			rs = pst.executeQuery();
+			
+			while(rs.next())
+			{
+				return rs.getInt("p_id");
+			}
+			
+			
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public int getQuantity(int id)
+	{
+		try
+		{
+			query = "select * from ordini where o_id=?";
+			pst = this.con.prepareStatement(query);
+			pst.setInt(1, id);
+			
+			rs = pst.executeQuery();
+			
+			while(rs.next())
+			{
+				return rs.getInt("o_quantity");
+			}
+			
+			
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return 0;
+	}
 
 }

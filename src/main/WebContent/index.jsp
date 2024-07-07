@@ -7,6 +7,7 @@
     
     
     <%Utente auth = (Utente)request.getSession().getAttribute("auth"); 
+    
   	
   	if(auth!=null)
   	{
@@ -38,8 +39,13 @@
 
 <!-- codice qui tra header e footer -->
 
+
 	<div class = "container">
-	
+	<% if(auth!=null ){%>
+	<br>
+	<h4><p>Benvenuto <%= auth.getNome() %></p></h4>
+	<br>
+	<%}%>
 	<div class = "card-header my-3">I NOSTRI OLI</div>
 	
 	<div class="row g-3">

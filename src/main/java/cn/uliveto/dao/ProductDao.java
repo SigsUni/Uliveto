@@ -236,4 +236,53 @@ public class ProductDao {
 		
 		return row;
 	}
+	
+	public boolean updateStock(int id, int stock)
+	{
+		
+		try 
+		{
+			query = "UPDATE prodotti SET stock=? where id=?";
+			
+			pst = this.con.prepareStatement(query);
+			pst.setInt(1, stock);
+			pst.setInt(2, id);
+			
+		    pst.executeUpdate();
+		    
+		    return true;
+			
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+		
+	}
+	
+	public int getStockbyId(int id)
+	{
+		try {
+			
+			query = "select * from prodotti where id=?";
+			
+			pst = this.con.prepareStatement(query);
+			pst.setInt(1, id);
+			
+			rs = pst.executeQuery();
+			
+			while(rs.next()) {
+				
+				return rs.getInt("stock");
+			}
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
 }
