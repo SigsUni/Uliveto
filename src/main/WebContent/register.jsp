@@ -28,7 +28,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>Register</title>
 <%@include file = "includes/header.jsp" %>
 </head>
 <body>
@@ -40,7 +40,7 @@
 	<!-- card in generale -->
 	
 	<div class = "card-header text-center">
-	User login
+	Registrazione
 	
 	<!--  card-header -->
 	
@@ -51,9 +51,12 @@
 	<!-- card body --> 
 	
 
-<form action ="user-login" method = "POST" >
+<form action ="user-register" method = "POST" >
 
 <div class= "form-group">
+
+	<label>Nome</label>
+	<input type="text" class ="form-control" name="login-name" placeholder ="Inserisci il tuo nome" required>
 
 	<label>Indirizzo E-mail</label>
 	<input type = "email" class = "form-control" name = "login-email" placeholder = "Inserisci la tua E-mail" required>
@@ -70,10 +73,8 @@
 <div class = "text-center">
 	
 	
-	<button type = "submit" class = "btn btn-primary"> Login </button>
+	<button type = "submit" class = "btn btn-primary"> Register </button>
 </div>
-
-<a class="text-left" href="register.jsp"><i>Non sei ancora registrato?</i></a>
 </form>
 
 </div>

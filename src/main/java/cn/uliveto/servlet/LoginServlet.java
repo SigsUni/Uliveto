@@ -48,8 +48,6 @@ public class LoginServlet extends HttpServlet {
 			String email = request.getParameter("login-email");
 			String password = request.getParameter("login-password");
 			
-			out.print(email+password);
-			
 			
 			try {
 				UserDao udao = new UserDao(DbCon.getConnection());

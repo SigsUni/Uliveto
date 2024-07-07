@@ -48,5 +48,58 @@ public class UserDao {
 			return user;
 		}
 		
+		public boolean UserCheck(String email)
+		{
+			try
+			{
+				query = "select * from utenti where email=?";
+				
+				pst = this.con.prepareStatement(query);
+				pst.setString(1,email);
+				rs = pst.executeQuery();
+				
+				if(rs.next())
+				{
+					if(rs.getString("email").equals(email))
+					{
+							return true;
+					}
+				}
+				return false;
+				
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+				System.out.print(e.getMessage());
+			}
+			return false;
+		}
+		
+		
+		
+		public boolean userRegistration(String name, String email, String password)
+		{
+			try
+			{
+				query = "insert into utenti (nome, email, password) VALUES (?,?,?)";
+					
+				pst = this.con.prepareStatement(query);
+				pst.setString(1,name);
+				pst.setString(2,email);
+				pst.setString(3,password);
+				pst.executeUpdate();
+				return true;
+					
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+				System.out.print(e.getMessage());
+			}
+			
+			return false;
+		}
+		
 		
 }
