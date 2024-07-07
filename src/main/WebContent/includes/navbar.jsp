@@ -22,7 +22,7 @@
       	{%>
       	
       		<li class="nav-item">
-        	<a class="nav-link disabled" href="orders.jsp">Ordini</a>
+        	<a class="nav-link" href="orders.jsp">Ordini</a>
       		</li>
       			
       		<li class="nav-item">

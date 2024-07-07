@@ -1,18 +1,26 @@
 <%@page import = "cn.uliveto.connection.DbCon" %>
 <%@page import ="cn.uliveto.model.*" %>
 <%@page import = "java.util.*" %>
+<%@page import = "cn.uliveto.dao.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-    <%Utente auth = (Utente)request.getSession().getAttribute("auth"); 
+    <%
+    Utente auth = (Utente)request.getSession().getAttribute("auth"); 
   	
+    List<Ordine> orders = null;
+    
+    
   	if(auth!=null)
   	{
   		request.setAttribute("auth",auth);
+  		OrderDao orderDao = new OrderDao(DbCon.getConnection());
+  		orders = new OrderDao(DbCon.getConnection()).userOrders(auth.getId());
+  		
   	}
   	else
   	{
-  		response.sendRedirect("index.jsp");
+  		response.sendRedirect("login.jsp");
   	}
   	
 	ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
@@ -31,7 +39,69 @@
 </head>
 <body>
 <%@include file = "includes/navbar.jsp" %>
-<h1>Ciao a tutti </h1>
+
+<div class ="container">
+
+	<div class ="card-header my-3">Tutti gli ordini</div>
+	<table class="table table-light">
+	<thead>
+	
+		<tr>
+			<th scope= "col">Data</th>
+			<th scope= "col">Nome</th>
+			<th scope= "col">Categoria</th>
+			<th scope= "col">Quantità</th>
+			<th scope= "col">Prezzo</th>
+			<th scope= "col">Cancella</th>
+			
+		</tr>
+		
+		<tbody>
+			<% 
+			if(orders!=null){
+				
+				for(Ordine o:orders)
+				{%>
+				
+				<tr>
+					
+					<td><%=o.getDate() %></td>
+					<td><%=o.getName() %></td>
+					<td><%=o.getCategory() %></td>
+					<td><%=o.getQuantity() %></td>
+					<td>€<%=o.getPrice() %></td>
+					
+					<td><a class = "btn btn-sm btn-danger" href="cancel-order?id=<%=o.getOrderId() %>"> Cancel</a></td>
+					
+					
+				<% }
+				
+			}
+		
+		%>
+		
+		</tbody>
+	
+	
+	
+	</thead>
+	
+	
+	
+	
+	
+	
+	
+	
+	</table>
+
+
+
+
+
+</div>
+
+
 <%@include file = "includes/footer.jsp" %>
 </body>
 </html>

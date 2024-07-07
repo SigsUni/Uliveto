@@ -200,4 +200,40 @@ public class ProductDao {
 		return true;
 		
 	}
+	
+	public Prodotto getSingleProduct(int id)
+	{
+		Prodotto row = null;
+		
+		try {
+			
+			query = "select * from prodotti where id=?";
+			
+			pst = this.con.prepareStatement(query);
+			pst.setInt(1, id);
+			
+			rs = pst.executeQuery();
+			
+			while(rs.next()) {
+				
+				row = new Prodotto();
+				
+				row.setId(rs.getInt("id"));
+				row.setName(rs.getString("nome"));
+				row.setCategory(rs.getString("categoria"));
+				row.setDescription(rs.getString("descrizione"));
+				row.setPrice(rs.getDouble("prezzo"));
+				row.setImage(rs.getString("immagine"));
+				row.setStock(rs.getInt("stock"));
+			}
+			
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return row;
+	}
 }

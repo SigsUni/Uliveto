@@ -3,8 +3,9 @@ package cn.uliveto.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.*;
 
-import cn.uliveto.model.Ordine;
+import cn.uliveto.model.*;
 
 public class OrderDao {
 	
@@ -46,4 +47,65 @@ public class OrderDao {
 		
 		
 	}
+	
+	public List<Ordine> userOrders(int id)
+	{
+		List<Ordine> list = new ArrayList <>();
+		
+		try
+		{
+			query = "select * from ordini where u_id=? order by ordini.o_id desc";
+			pst = this.con.prepareStatement(query);
+			pst.setInt(1, id);
+			
+			rs = pst.executeQuery();
+			
+			while(rs.next())
+			{
+				Ordine order = new Ordine();
+				
+				ProductDao productdao = new ProductDao(this.con);
+				
+				int pId = rs.getInt("p_id");
+				
+				Prodotto product = productdao.getSingleProduct(pId);
+				order.setOrderId(rs.getInt("o_id"));
+				order.setId(pId);
+				order.setName(product.getName());
+				order.setCategory(product.getCategory());
+				order.setPrice(product.getPrice()*rs.getInt("o_quantity"));
+				order.setQuantity(rs.getInt("o_quantity"));
+				order.setDate(rs.getString("o_date"));
+				list.add(order);
+				
+			}
+			
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return list;
+		
+	}
+	
+	public void cancelOrder(int id)
+	{
+		try {
+			
+			query = "delete from ordini where o_id=?";
+			pst = this.con.prepareStatement(query);
+			pst.setInt(1, id);
+			
+			pst.execute();
+			
+			
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+
 }
