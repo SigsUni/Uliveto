@@ -19,7 +19,7 @@
   	}
   	else
   	{
-  		response.sendRedirect("index.jsp");
+  		response.sendRedirect("/uliveto/index.jsp");
   	}
   	
   	ProductDao pd = new ProductDao(DbCon.getConnection());

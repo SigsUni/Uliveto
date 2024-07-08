@@ -26,7 +26,7 @@
   	}
   	else
   	{
-  		response.sendRedirect("login.jsp");
+  		response.sendRedirect("/uliveto/index.jsp");
   	}
   	
 	ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
