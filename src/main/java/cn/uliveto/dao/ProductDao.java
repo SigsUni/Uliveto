@@ -285,4 +285,23 @@ public class ProductDao {
 		return 0;
 	}
 	
+	public void DeleteById(int id)
+	{
+		try {
+			
+			query = "delete from prodotti where id=?";
+			pst = this.con.prepareStatement(query);
+			pst.setInt(1, id);
+			
+			pst.execute();
+	
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
 }
+
+

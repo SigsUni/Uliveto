@@ -16,7 +16,7 @@
         <a class="nav-link" href="admin_index.jsp">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="prodotti_admin.jsp">Prodotti<span class="badge badge-danger px-1">${cart_list.size() }</span></a>
+        <a class="nav-link" href="insert_product.jsp">Nuovo prodotto<span class="badge badge-danger px-1"></span></a>
       </li>
       		<li class="nav-item">
         	<a class="nav-link " href="orders_admin.jsp">Ordini</a>

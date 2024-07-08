@@ -69,7 +69,7 @@
     				</div>
     					<a href="/uliveto/add-stock?id=<%= p.getId() %>" class="btn btn-dark col-md-8 ">AGGIUNGI STOCK</a>
     					<a href="/uliveto/delete-stock?id=<%=p.getId()%>" class="btn btn-danger col-md-8 ">ELIMINA STOCK</a>
-    					<a href="order-now?id=<%=p.getId()%>" class="btn btn-danger col-md-8 ">ELIMINA PRODOTTO</a>
+    					<a href="/uliveto/delete-prodotto?id=<%=p.getId()%>" class="btn btn-danger col-md-8 ">ELIMINA PRODOTTO</a>
     				<div class = "mt-3 justify-content -between ">
     				<p class="card-text"><%=p.getDescription() %></p>
     				</div>
@@ -118,7 +118,7 @@
     				
     					<a href="/uliveto/add-stock?id=<%= p.getId() %>" class="btn btn-dark col-md-8 gy-3">ELIMINA STOCK</a>
     					<a href="/uliveto/delete-stock?id=<%=p.getId()%>" class="btn btn-danger col-md-8 gy-3">AGGIUNGI STOCK</a>
-    					<a href="add-to-cart?id=<%= p.getId() %>" class="btn btn-danger col-md-8 gy-3">ELIMINA PRODOTTO</a>
+    					<a href="/uliveto/delete-prodotto?id=<%= p.getId() %>" class="btn btn-danger col-md-8 gy-3">ELIMINA PRODOTTO</a>
     				
     				
     				</div>
