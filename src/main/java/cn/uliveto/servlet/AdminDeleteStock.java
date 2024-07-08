@@ -31,12 +31,20 @@ public class AdminDeleteStock extends HttpServlet {
 		try(PrintWriter out = response.getWriter())
 		{
 			int id = Integer.parseInt(request.getParameter("id"));
+			int stock_input = Integer.parseInt(request.getParameter("stock_remove"));
 			ProductDao productdao = new ProductDao(DbCon.getConnection());
 			
 			int stock = productdao.getStockbyId(id);
-			productdao.updateStock(id, stock-1);
+			if((stock - stock_input) <0)
+			{
+				response.sendRedirect("/uliveto/admin-pages/admin_index.jsp");
+			}
+			else
+			{
+				productdao.updateStock(id, stock-stock_input);
 			
-			response.sendRedirect("/uliveto/admin-pages/admin_index.jsp");
+				response.sendRedirect("/uliveto/admin-pages/admin_index.jsp");
+			}
 		}
 		catch(Exception e)
 		{

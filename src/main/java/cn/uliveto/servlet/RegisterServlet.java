@@ -48,9 +48,7 @@ response.setContentType("text/html; charset= UTF-8");
 			try {
 				UserDao udao = new UserDao(DbCon.getConnection());
 				boolean x = udao.UserCheck(email);
-				System.out.println(name);
-				System.out.println(email);
-				System.out.println(password);
+				
 				if(x)
 				{
 					response.sendRedirect("registration_failure.jsp");

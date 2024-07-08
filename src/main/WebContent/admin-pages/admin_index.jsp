@@ -67,9 +67,24 @@
     				<h6 class = "stock">Stock: <% if(p.getStock()!=0){%> <%= p.getStock()%> <%}else{ %><b><font color="red" >Out of Stock</font></b><%} %></h6>
     				<div class = "mt-3 justify-content -between ">
     				</div>
-    					<a href="/uliveto/add-stock?id=<%= p.getId() %>" class="btn btn-dark col-md-8 ">AGGIUNGI STOCK</a>
-    					<a href="/uliveto/delete-stock?id=<%=p.getId()%>" class="btn btn-danger col-md-8 ">ELIMINA STOCK</a>
-    					<a href="/uliveto/delete-prodotto?id=<%=p.getId()%>" class="btn btn-danger col-md-8 ">ELIMINA PRODOTTO</a>
+    				<div class="form-group d-flex justify-content-between w-50">
+    				
+    				<form action="/uliveto/add-stock" method="GET" class="form-inline d-flex" >
+					<input type="number" name ="stock_add" class="form-control w-100" value="" placeholder="">
+				  	ID <input type="text" name="id" class="form-control w-75"  value="<%=p.getId() %>" readonly>
+				  	<button type="submit" class="btn btn-primary">Aggiungi</button>
+				  	</form>
+				  	
+				  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				  	
+				  	<form action="/uliveto/delete-stock" method="GET" class="form-inline d-flex">
+				  	<input type="number" name ="stock_remove" class="form-control w-100" value="" placeholder="">
+				  	ID <input type="text" name="id" class="form-control w-75"  value="<%=p.getId() %>" readonly>
+				  	<button type="submit" class="btn btn-danger">&nbsp;Rimuovi&nbsp;</button>
+				  	</form>
+						</div>
+    				 
+    					<a href="/uliveto/delete-prodotto?id=<%=p.getId()%>" class="btn btn-danger col-md-8 ">ELIMINA PRODOTTO</a> 
     				<div class = "mt-3 justify-content -between ">
     				<p class="card-text"><%=p.getDescription() %></p>
     				</div>
@@ -114,18 +129,34 @@
     				<h6 class = "price">Prezzo €<%= p.getPrice() %></h6>
     				<h6 class = "category">Categoria: <%= p.getCategory() %></h6>
     				<h6 class = "stock">Stock: <% if(p.getStock()!=0){%> <%= p.getStock()%> <%}else{ %><b><font color="red" >Out of Stock</font></b><%} %></h6>
-    				<div class = "mt-3 justify-content -between gy-3">
+    				<div class = "mt-3 justify-content -between ">
+    				</div>
+    				<div class="form-group d-flex justify-content-between w-50">
     				
-    					<a href="/uliveto/add-stock?id=<%= p.getId() %>" class="btn btn-dark col-md-8 gy-3">ELIMINA STOCK</a>
-    					<a href="/uliveto/delete-stock?id=<%=p.getId()%>" class="btn btn-danger col-md-8 gy-3">AGGIUNGI STOCK</a>
-    					<a href="/uliveto/delete-prodotto?id=<%= p.getId() %>" class="btn btn-danger col-md-8 gy-3">ELIMINA PRODOTTO</a>
-    				
-    				
+    				<form action="/uliveto/add-stock" method="GET" class="form-inline d-flex" >
+					<input type="number" name ="stock_add" class="form-control w-100" value="" placeholder="">
+				  	ID <input type="text" name="id" class="form-control w-75"  value="<%=p.getId() %>" readonly>
+				  	<button type="submit" class="btn btn-primary">Aggiungi</button>
+				  	</form>
+				  	
+				  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				  	
+				  	<form action="/uliveto/delete-stock" method="GET" class="form-inline d-flex">
+				  	<input type="number" name ="stock_remove" class="form-control w-100" value="" placeholder="">
+				  	ID <input type="text" name="id" class="form-control w-75"  value="<%=p.getId() %>" readonly>
+				  	<button type="submit" class="btn btn-danger">&nbsp;Rimuovi&nbsp;</button>
+				  	</form>
+						</div>
+    				 
+    					<a href="/uliveto/delete-prodotto?id=<%=p.getId()%>" class="btn btn-danger col-md-8 ">ELIMINA PRODOTTO</a> 
+    				<div class = "mt-3 justify-content -between ">
+    				<p class="card-text"><%=p.getDescription() %></p>
     				</div>
     				
   				</div>
 			</div>
 		</div>
+			
 		<%
 			}
 		}

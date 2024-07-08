@@ -59,7 +59,7 @@
 	<!-- card body --> 
 	
 
-<form action ="/uliveto/insert-product" method = "POST" >
+<form action ="/uliveto/insert-product" method = "GET" >
 
 <div class= "form-group">
 
@@ -71,7 +71,7 @@
 <div class= "form-group">
 
 	<label>Categoria</label>
-	<input type = "password" class = "form-control" name = "insert-categoria" placeholder = "Inserisci categoria" required>
+	<input type = "text" class = "form-control" name = "insert-categoria" placeholder = "Inserisci categoria" required>
 
 </div>
 
@@ -85,21 +85,21 @@
 <div class= "form-group">
 
 	<label>Stock</label>
-	<input type = "number" class = "form-control" name = "login-password" placeholder = "quanti prodotti ci sono?" required>
+	<input type = "number" class = "form-control" name = "insert-stock" placeholder = "quanti prodotti ci sono?" required>
 
 </div>
 
 <div class= "form-group">
 
 	<label>Prezzo</label>
-	<input type = "number" class = "form-control" name = "login-password" placeholder = "Inserisci prezzo" required>
+	<input type = "number" class = "form-control" name = "insert-prezzo" placeholder = "Inserisci prezzo" required>
 
 </div>
 
 <div class= "form-group">
 
 	<label>Immagine</label>
-	<input type = "text" class = "form-control" name = "login-password" placeholder = "inserisci img.jpg" required>
+	<input type = "text" class = "form-control" name = "insert-immagine" placeholder = "inserisci img.jpg" required>
 
 </div>
 	

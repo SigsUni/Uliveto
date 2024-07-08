@@ -30,10 +30,11 @@ public class AdminAddStock extends HttpServlet {
 		try(PrintWriter out = response.getWriter())
 		{
 			int id = Integer.parseInt(request.getParameter("id"));
+			int stock_input = Integer.parseInt(request.getParameter("stock_add"));
 			ProductDao productdao = new ProductDao(DbCon.getConnection());
 			
 			int stock = productdao.getStockbyId(id);
-			productdao.updateStock(id, stock+1);
+			productdao.updateStock(id, stock+stock_input);
 			
 			response.sendRedirect("/uliveto/admin-pages/admin_index.jsp");
 		}

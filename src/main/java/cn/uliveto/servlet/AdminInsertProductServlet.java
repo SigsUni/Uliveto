@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.uliveto.connection.DbCon;
+import cn.uliveto.dao.ProductDao;
 import cn.uliveto.dao.UserDao;
 import cn.uliveto.model.Utente;
 
@@ -22,7 +23,7 @@ public class AdminInsertProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.sendRedirect("/uliveto/admin-pages/admin_index.jsp");
 	}
@@ -30,43 +31,40 @@ public class AdminInsertProductServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("text/html; charset= UTF-8");
 		
 		try (PrintWriter out = response.getWriter())
 		{
-			String email = request.getParameter("login-email");
-			String password = request.getParameter("login-password");
+			String name = request.getParameter("insert-nome");
+			String categoria = request.getParameter("insert-categoria");
+			String descrizione = request.getParameter("insert-descrizione");
+			int Stock = Integer.parseInt(request.getParameter("insert-descrizione"));
+			String immagine = request.getParameter("insert-immagine");
 			
 			
-			try {
-				UserDao udao = new UserDao(DbCon.getConnection());
-				Utente user = udao.userLogin(email,password);
+
+			System.out.println(categoria);
+			
+			try 
+			{
+				ProductDao productdao = new ProductDao(DbCon.getConnection());
+				
+				boolean x = productdao.insertProduct(name,categoria,descrizione,Stock,immagine);
 				
 				
-				if(user!=null)
+				if(x == true)
 				{
-					out.print("user login");
-					request.getSession().setAttribute("auth",user);
-					
-					if(user.getId() == 2)
-					{
-						response.sendRedirect("/uliveto/admin-pages/admin_index.jsp");
-					}
-					else
-					{
-						response.sendRedirect("index.jsp");
-					}
-					
+					response.sendRedirect("/uliveto/admin-pages/admin_index.jsp");
 				}
 				else
 				{
-					response.sendRedirect("login_failure.jsp");
+					response.sendRedirect("/uliveto/admin-pages/insert_error.jsp");
 				}
 				
 			}
-			catch(ClassNotFoundException | SQLException e)
+			catch(Exception e)
 			{
 				e.printStackTrace();
 			}
