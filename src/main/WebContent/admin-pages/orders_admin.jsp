@@ -57,6 +57,7 @@
 	
 		<tr>
 			<th scope= "col">Data</th>
+			<th scope ="col">Utente</th>
 			<th scope= "col">Nome</th>
 			<th scope= "col">Categoria</th>
 			<th scope= "col">Quantità</th>
@@ -75,12 +76,13 @@
 				<tr>
 					
 					<td><%=o.getDate() %></td>
+					<td><%=o.getUsername() %></td>
 					<td><%=o.getName() %></td>
 					<td><%=o.getCategory() %></td>
 					<td><%=o.getQuantity() %></td>
 					<td>€<%=o.getPrice() %></td>
 					
-					<td><a class = "btn btn-sm btn-danger" href="cancel-order?id=<%=o.getOrderId() %>"> Cancel</a></td>
+					<td><a class = "btn btn-sm btn-danger" href="/uliveto/cancel-order?id=<%=o.getOrderId() %>"> Elimina</a></td>
 					
 					
 				<% }

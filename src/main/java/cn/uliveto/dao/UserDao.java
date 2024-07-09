@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import cn.uliveto.model.Prodotto;
 import cn.uliveto.model.Utente;
 
 public class UserDao {
@@ -99,6 +100,39 @@ public class UserDao {
 			}
 			
 			return false;
+		}
+		
+		public Utente getSingleUser(int id)
+		{
+			Utente row = null;
+			
+			try {
+				
+				query = "select * from utenti where id=?";
+				
+				pst = this.con.prepareStatement(query);
+				pst.setInt(1, id);
+				
+				rs = pst.executeQuery();
+				
+				while(rs.next()) {
+					
+					row = new Utente();
+					
+					row.setId(rs.getInt("id"));
+					row.setNome(rs.getString("nome"));
+					row.setEmail(rs.getString("email"));
+					row.setPassword(rs.getString("password"));
+				}
+				
+				
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			
+			return row;
 		}
 		
 		

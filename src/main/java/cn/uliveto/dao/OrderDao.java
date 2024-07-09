@@ -67,11 +67,10 @@ public class OrderDao {
 				Ordine order = new Ordine();
 				
 				ProductDao productdao = new ProductDao(this.con);
-				UserDao userdao = new UserDao(this.con);
 				
 				
 				int pId = rs.getInt("p_id");
-				int uId = rs.getInt("u_id");
+				
 				
 				Prodotto product = productdao.getSingleProduct(pId);
 				order.setOrderId(rs.getInt("o_id"));
@@ -110,10 +109,14 @@ public class OrderDao {
 				Ordine order = new Ordine();
 				
 				ProductDao productdao = new ProductDao(this.con);
+				UserDao userdao = new UserDao(this.con);
 				
 				int pId = rs.getInt("p_id");
+				int uId = rs.getInt("u_id");
+				
 				
 				Prodotto product = productdao.getSingleProduct(pId);
+				Utente user = userdao.getSingleUser(uId);
 				order.setOrderId(rs.getInt("o_id"));
 				order.setId(pId);
 				order.setName(product.getName());
@@ -121,6 +124,7 @@ public class OrderDao {
 				order.setPrice(product.getPrice()*rs.getInt("o_quantity"));
 				order.setQuantity(rs.getInt("o_quantity"));
 				order.setDate(rs.getString("o_date"));
+				order.setUsername(user.getNome());
 				list.add(order);
 				
 			}

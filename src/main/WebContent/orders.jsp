@@ -61,7 +61,6 @@
 			<th scope= "col">Categoria</th>
 			<th scope= "col">Quantità</th>
 			<th scope= "col">Prezzo</th>
-			<th scope= "col">Cancella</th>
 			
 		</tr>
 		
@@ -80,7 +79,6 @@
 					<td><%=o.getQuantity() %></td>
 					<td>€<%=o.getPrice() %></td>
 					
-					<td><a class = "btn btn-sm btn-danger" href="cancel-order?id=<%=o.getOrderId() %>"> Cancel</a></td>
 					
 					
 				<% }

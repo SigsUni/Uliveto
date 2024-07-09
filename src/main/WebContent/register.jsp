@@ -35,6 +35,8 @@
 <meta charset="UTF-8">
 <title>Register</title>
 <%@include file = "includes/header.jsp" %>
+
+<script src="JavaScript/registration.js"></script>
 </head>
 <body>
 <%@include file = "includes/navbar.jsp" %>
@@ -78,7 +80,7 @@
 <div class = "text-center">
 	
 	
-	<button type = "submit" class = "btn btn-primary"> Register </button>
+	<button type = "submit" class = "btn btn-primary" onclick ="funzione(this)" > Register </button>
 </div>
 </form>
 

@@ -51,7 +51,7 @@ public class CancelOrderServlet extends HttpServlet {
 					
 				}		
 			}
-			response.sendRedirect("orders.jsp");
+			response.sendRedirect("/uliveto/admin-pages/orders_admin.jsp");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			
