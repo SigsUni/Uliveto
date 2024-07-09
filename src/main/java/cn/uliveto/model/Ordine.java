@@ -6,6 +6,7 @@ public class Ordine extends Prodotto{
 		private int uid;
 		private int quantity;
 		private String date;
+		private String user_name;
 		
 		
 		
@@ -42,6 +43,11 @@ public class Ordine extends Prodotto{
 			this.date = date;
 		}
 		
+		public void setUser_name(String uname)
+		{
+			this.user_name = uname;
+		}
+		
 		public int getOrderId()
 		{
 			return orderId;
@@ -60,6 +66,11 @@ public class Ordine extends Prodotto{
 		public String getDate()
 		{
 			return date;
+		}
+		
+		public String getUser_name()
+		{
+			return user_name;
 		}
 		
 		

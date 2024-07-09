@@ -40,18 +40,16 @@ public class AdminInsertProductServlet extends HttpServlet {
 			String name = request.getParameter("insert-nome");
 			String categoria = request.getParameter("insert-categoria");
 			String descrizione = request.getParameter("insert-descrizione");
-			int Stock = Integer.parseInt(request.getParameter("insert-descrizione"));
+			int Stock = Integer.parseInt(request.getParameter("insert-stock"));
 			String immagine = request.getParameter("insert-immagine");
+			int prezzo= Integer.parseInt(request.getParameter("insert-prezzo"));
 			
-			
-
-			System.out.println(categoria);
 			
 			try 
 			{
 				ProductDao productdao = new ProductDao(DbCon.getConnection());
 				
-				boolean x = productdao.insertProduct(name,categoria,descrizione,Stock,immagine);
+				boolean x = productdao.insertProduct(name,categoria,descrizione,Stock,prezzo,immagine);
 				
 				
 				if(x == true)

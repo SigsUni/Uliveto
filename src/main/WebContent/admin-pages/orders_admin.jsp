@@ -24,7 +24,7 @@
   		}
   		
   		OrderDao orderDao = new OrderDao(DbCon.getConnection());
-  		orders = new OrderDao(DbCon.getConnection()).userOrders(auth.getId());
+  		orders = new OrderDao(DbCon.getConnection()).all_userOrders();
   		
   	}
   	else
@@ -44,10 +44,10 @@
 <head>
 <meta charset="UTF-8">
 <title>ordini</title>
-<%@include file = "includes/header.jsp" %>
+<%@include file = "admin_includes/header.jsp" %>
 </head>
 <body>
-<%@include file = "includes/navbar.jsp" %>
+<%@include file = "admin_includes/navbar.jsp" %>
 
 <div class ="container">
 
@@ -111,6 +111,6 @@
 </div>
 
 
-<%@include file = "includes/footer.jsp" %>
+<%@include file = "admin_includes/footer.jsp" %>
 </body>
 </html>

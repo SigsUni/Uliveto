@@ -302,22 +302,25 @@ public class ProductDao {
 		}
 	}
 	
-	public boolean insertProduct(String nome, String categoria, String descrizione,int stock, String immagine)
+	public boolean insertProduct(String nome, String categoria, String descrizione,int stock, int prezzo, String immagine)
 	{
 		boolean result = false;
 		
 		try {
 			
-			query = "insert into prodotti (nome,categoria,descrizione,stock,immagine) values(?,?,?,?,?)";
+			query = "insert into prodotti (nome,descrizione,categoria,stock,prezzo,immagine) values(?,?,?,?,?,?)";
 			
 			pst= this.con.prepareStatement(query);
 			pst.setString(1,nome);
-			pst.setString(2,categoria);
-			pst.setString(3,descrizione);
+			pst.setString(2,descrizione);
+			pst.setString(3,categoria);
 			pst.setInt(4,stock);
-			pst.setString(5,immagine);
+			pst.setInt(5,prezzo);
+			pst.setString(6,immagine);
 			pst.executeUpdate();
 			result = true;
+			
+			return result;
 			
 		}
 		catch(Exception e)
