@@ -39,8 +39,9 @@
 <script src="JavaScript/registration.js"></script>
 </head>
 <body>
-<%@include file = "includes/navbar.jsp" %>
-<div class= "container">
+<%@include file = "includes/navbar_nuova.jsp" %>
+<br><br><br>
+<div class= "container d-flex justify-content-center">
 
 	<div class = "card w-50 mx-auto my-5">
 	

@@ -50,7 +50,7 @@
 <%@include file = "includes/header.jsp" %>
 </head>
 <body>
-<%@include file = "includes/navbar.jsp" %>
+<%@include file = "includes/navbar_nuova.jsp" %>
 
 <div class="container">
 <h3> Oggetto già presente nel carrello </h3>

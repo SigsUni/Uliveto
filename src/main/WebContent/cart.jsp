@@ -60,8 +60,9 @@
 </style>
 </head>
 <body>
-<%@include file = "includes/navbar.jsp" %>
+<%@include file = "includes/navbar_nuova.jsp" %>
 
+<br><br><br>
 <div class="container">
 
 <div class="d-flex py-3"><h3>Total price:€ ${ (total>0)? total:0 }</h3><a class="btn mx-3 btn-primary" href="cart-check-out">Check out</a></div>

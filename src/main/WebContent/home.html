@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Uliveto</title>
+    <link rel="icon" href="img/logo_uliveto_bianco.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <a href="" class=" face "></a>
+    <a href="" class="insta"></a>
+    <header class="header clearfix">
+
+        
+        <a href="" class="header_logo"></a>
+
+
+
+        <a href="" class="header_icon-bar">
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </a>
+
+
+        <ul class="header_menu animate">
+
+
+
+            <li class="header_menu_item"><a href="index.html">Home</a></li>
+            <li class="header_menu_item"><a target="_blank" href="https://www.google.com/maps/place/L'Uliveto+Azienda+Agricola+Trentinara/@40.4006209,15.1075769,15z/data=!4m6!3m5!1s0x133957af04b89b47:0xb0c762598c63ecf!8m2!3d40.3995352!4d15.1151114!16s%2Fg%2F11ns1f867d?hl=it&entry=ttu">Dove ci Trovi</a></li>
+            <li class="header_menu_item"><a href="">Catalogo</a></li>
+
+            <li class="header_menu_item"><a href="">Carrello</a></li>
+
+            <li class="header_menu_item"><a href="">Login</a></li>
+            
+
+        </ul>
+        
+
+    </header>
+
+    <section class="cover elemento">
+        <div class="cover_filter"></div>
+        <div class="cover_caption">
+            <div class="cover_caption_copy">
+                    <h1>Welcome to L'Uliveto</h1>
+                    
+                    
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="cards clearfix">
+        <div class="card">
+            <img src="img/carosello1.jpg" alt="" class="image">
+            <div class="card_copy">
+                <h3>Orcio Magnum</h3>
+                
+            </div>
+         
+        </div>
+
+
+        <div class="card">
+            <img src="img/carosello2.jpg" alt="" class="image">
+            <div class="card_copy">
+                <h3>Il Nostro Olio</h3>
+                
+            </div>
+         
+        </div>
+
+
+        <div class="card">
+            <img src="img/carosello3.jpg" alt="" class="image">
+            <div class="card_copy">
+                <h3>Legumi</h3>
+                
+            </div>
+         
+        </div>
+
+    </section>
+
+    <section class="banner clearfix">
+        <div class="banner_image"></div>
+        <div class="banner_copy">
+            <div class="banner_copy_txt">
+                
+                <h4>Scegli la bomboniera perfetta per il tuo evento</h4>
+                <p>Gli orci sono realizzati e decorati a mano su tornio, immerso poi in smalto ceramico alimentare certificato. </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="banner clearfix">
+        <div class="banner_image float banner_image2"></div>
+        <div class="banner_copy float">
+            <div class="banner_copy_txt">
+                
+                <h4 class="right">Il nostro olio extravergine</h4>
+                <p class="right">Olio extravergine di oliva ottenuto direttamente dalle olive e unicamente mediante processi meccanici.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="banner clearfix">
+        <div class="banner_image banner_image3"></div>
+        <div class="banner_copy">
+            <div class="banner_copy_txt">
+                
+                <h4>I Nostri Ceci</h4>
+                <p>La produzione dei ceci include semina, crescita e raccolta con cure colturali per garantire qualità.</p>
+            </div>
+        </div>
+    </section>
+
+   
+    
+
+    <footer>
+        <div class="container1">
+          <div class="logo">
+            <img src="img/logo_uliveto_bianco.png" >
+          </div>
+          <div class="copyright">
+            <p>&copy; 2023 L'uliveto. Tutti i diritti riservati.<a href=""> Privacy policy</a> Developed by: M.Marino </p>
+            <p>p.iva 00000000000</p>
+          </div>
+        </div> 
+      </footer>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".header_icon-bar").click(function(e){
+                $(".header_menu").toggleClass('is-open');
+                e.preventDefault();/*mettiamo questo codice in questo modo dato che la rimozione e l inerimento della classe is open avviene su un link dobbiamo far si che la pagina non venga ricaricata cosi da poter attivare l evento*/
+            });
+           
+        });
+    </script>
+</body>
+
+
+</html>

@@ -49,7 +49,7 @@
 <%@include file = "includes/header.jsp" %>
 </head>
 <body>
-<%@include file = "includes/navbar.jsp" %>
+<%@include file = "includes/navbar_nuova.jsp" %>
 
 <div class="container">
 <h3> Errore durante il login, credenziali errate</h3>

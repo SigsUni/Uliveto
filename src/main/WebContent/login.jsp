@@ -37,8 +37,9 @@
 <%@include file = "includes/header.jsp" %>
 </head>
 <body>
-<%@include file = "includes/navbar.jsp" %>
-<div class= "container">
+<%@include file = "includes/navbar_nuova.jsp" %>
+<br><br><br>
+<div class= "container d-flex justify-content-center">
 
 	<div class = "card w-50 mx-auto my-5">
 	
@@ -85,6 +86,6 @@
 </div>
 </div>
 
-<%@include file = "includes/footer.jsp" %>
+
 </body>
 </html>

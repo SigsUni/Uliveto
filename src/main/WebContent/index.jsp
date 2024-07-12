@@ -40,10 +40,10 @@
 <%@include file = "includes/header.jsp" %>
 </head>
 <body>
-<%@include file = "includes/navbar.jsp" %>
+<%@include file = "includes/navbar_nuova.jsp" %>
 
 <!-- codice qui tra header e footer -->
-
+<br><br><br>
 
 	<div class = "container">
 	<% if(auth!=null ){%>

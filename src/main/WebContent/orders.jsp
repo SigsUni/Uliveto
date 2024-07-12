@@ -47,7 +47,8 @@
 <%@include file = "includes/header.jsp" %>
 </head>
 <body>
-<%@include file = "includes/navbar.jsp" %>
+<%@include file = "includes/navbar_nuova.jsp" %>
+<br><br><br>
 
 <div class ="container">
 
