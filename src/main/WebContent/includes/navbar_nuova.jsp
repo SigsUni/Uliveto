@@ -3,7 +3,7 @@
     <header class="header clearfix">
 
         
-        <a href="" class="header_logo"></a>
+        <a href="home.jsp" class="header_logo"></a>
 
 
 
