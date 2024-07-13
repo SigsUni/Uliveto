@@ -57,7 +57,5 @@
 <h4><a href = 'cart.jsp'> Go to cart page </a> </h4>
 
 </div>
-
-<%@include file = "includes/footer.jsp" %>
 </body>
 </html>

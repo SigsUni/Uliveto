@@ -50,13 +50,11 @@
 </head>
 <body>
 <%@include file = "includes/navbar_nuova.jsp" %>
-
 <div class="container">
 <h3> Errore durante il login, credenziali errate</h3>
 <h4><a href = 'login.jsp'> Ritenta il login</a> </h4>
 
-</div>
 
-<%@include file = "includes/footer.jsp" %>
+</div>
 </body>
 </html>
