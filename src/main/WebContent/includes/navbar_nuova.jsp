@@ -1,7 +1,7 @@
  <a href="" class=" face "></a>
     <a href="" class="insta"></a>
     <header class="header clearfix">
-
+    
         
         <a href="home.jsp" class="header_logo"></a>
 

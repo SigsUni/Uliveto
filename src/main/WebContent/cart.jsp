@@ -37,27 +37,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="CSS/carrello.css">
 <meta charset="UTF-8">
 <title>carrello</title>
 <%@include file = "includes/header.jsp" %>
-<style type = "text/css">
-
-	.table tbody td
-	{
-	
-		vertical-align: middle;
-		
-	}
-	
-	.btn-incre, .btn-decre
-	{
-		box-shadow: none;
-		font-size: 1.7rem;
-	}
-	
-	
-
-</style>
 </head>
 <body>
 <%@include file = "includes/navbar_nuova.jsp" %>
@@ -65,17 +48,17 @@
 <br><br><br>
 <div class="container">
 
-<div class="d-flex py-3"><h3>Total price:€ ${ (total>0)? total:0 }</h3><a class="btn mx-3 btn-primary" href="cart-check-out">Check out</a></div>
+<div class="total_price"><h3>Total price:€ ${ (total>0)? total:0 }</h3><a class="link_bottone" href="cart-check-out">Check out</a></div>
 	
-<table class="table table-loght">
+<table class="table table-loght tabella_intera" >
 
 	<thead>
-	<tr>
+	<tr class="tabella">
 	<th scope="col">Nome</th>
 	<th scope="col">Categoria</th>
 	<th scope="col">Prezzo</th>
 	<th scope="col">Compra ora</th>
-	<th scope="col">Annulla</th>
+	<th scope="col">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Annulla</th>
 	</tr>
 	</thead>
 
@@ -86,10 +69,11 @@
 			{
 				%>
 				<tr>
-				
+			
 				<td><%= c.getName()%></td>
 				<td><%= c.getCategory()%></td>
 				<td>€<%= c.getPrice()%></td>
+				
 				<td>
 				
 						<form action="order-now" method="POST" class="form-inline">
@@ -106,13 +90,13 @@
 						</div>
 						<%} %>
 						
-						<button type = "submit" class="btn btn-primary btn-sm" >Acquista</button>
+						<button type = "submit" class="link_bottone" >Acquista</button>
 					
 					
 						</form>
 				</td>
-				<td>
-						<a class= "btn btn-sm btn-danger" href ="remove-from-cart?id=<%=c.getId()%>">Rimuovi</a>
+				<td class="container_rimuovi">
+						<a class= "link_bottone_rimuovi" href ="remove-from-cart?id=<%=c.getId()%>">Rimuovi</a>
 				</td>
 			
 			</tr>

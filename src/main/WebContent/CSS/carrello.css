@@ -1,0 +1,75 @@
+body, html{ width: 100% ;height:100%; font-size: 16px; font-family: Lobster; box-sizing: border-box;margin: 0;padding: 0;}
+*,*:before,*:after{ box-sizing: border-box; }
+h1,h2,h3,h4,h5,h6, p, ol, ul{margin: 0;padding: 0;}
+ol,ul{list-style-type: none;}
+img{height: auto;}
+
+
+body{
+	background: rgb(240,241,242);
+background: linear-gradient(180deg, rgba(240,241,242,1) 60%, rgba(59,62,35,1) 125%);}
+
+.tabella
+{
+	
+	background-color: #3b3e23;
+	color: white;
+}
+
+
+
+.link_bottone{
+	
+	padding: 10px;
+	background-color: #3b3e23;
+	color: white;
+	margin-left:2%;
+	
+}
+
+.link_bottone:hover
+{
+	color:white;
+	text-decoration:none;
+}
+
+.total_price
+{
+	margin-bottom:1%;
+	display:flex;
+	align-items: center;
+}
+
+h3{
+	height: 90%;
+	
+}
+
+.tabella_intera
+{
+	
+	background-color:white;
+	border: 2px solid #3b3e23;
+}
+
+.container_rimuovi
+{
+	display:flex;
+	justify-content: center;
+	align-items:center;
+}
+
+
+.link_bottone_rimuovi
+{
+	padding: 10px;
+	color: black;
+	margin-left:2%;
+	background-color:#ffc300;
+}
+
+.link_bottone_rimuovi:hover
+{
+	color:white;
+	text-decoration:none;
+}
