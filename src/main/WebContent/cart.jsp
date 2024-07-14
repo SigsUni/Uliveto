@@ -37,20 +37,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="CSS/carrello.css">
 <meta charset="UTF-8">
 <title>carrello</title>
-<%@include file = "includes/header.jsp" %>
+<link rel="stylesheet" href="carrello.css">
+<%@include file = "includes/header.jsp" %>    
 </head>
 <body>
 <%@include file = "includes/navbar_nuova.jsp" %>
-
 <br><br><br>
 <div class="container">
 
-<div class="total_price"><h3>Total price:€ ${ (total>0)? total:0 }</h3><a class="link_bottone" href="cart-check-out">Check out</a></div>
+<div class="total_price"><h3>Total price:€ ${ (total>0)? total:0 }</h3><a class="link_bottone" href="cart-check-out"><b>Check out</b></a></div>
 	
-<table class="table table-loght tabella_intera" >
+<table class="table table-light tabella_intera" >
 
 	<thead>
 	<tr class="tabella">

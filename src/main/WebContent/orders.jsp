@@ -45,6 +45,20 @@
 <meta charset="UTF-8">
 <title>ordini</title>
 <%@include file = "includes/header.jsp" %>
+<link rel="stylesheet" href="carrello.css">
+
+<style>
+
+	.card-header{
+	
+		background-color: #3b3e23;
+		color:white;
+		text-weight:bold;
+	
+	}
+	
+</style>
+
 </head>
 <body>
 <%@include file = "includes/navbar_nuova.jsp" %>
@@ -52,11 +66,11 @@
 
 <div class ="container">
 
-	<div class ="card-header my-3">Tutti gli ordini</div>
-	<table class="table table-light">
+	<div class ="card-header my-3"><b>Tutti gli ordini</b></div>
+	<table class="table table-light tabella_intera">
 	<thead>
 	
-		<tr>
+		<tr class="tabella">
 			<th scope= "col">Data</th>
 			<th scope= "col">Nome</th>
 			<th scope= "col">Categoria</th>
@@ -108,8 +122,5 @@
 
 
 </div>
-
-
-<%@include file = "includes/footer.jsp" %>
 </body>
 </html>
