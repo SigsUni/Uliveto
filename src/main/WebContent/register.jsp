@@ -35,6 +35,18 @@
 <meta charset="UTF-8">
 <title>Register</title>
 <%@include file = "includes/header.jsp" %>
+<link rel="stylesheet" href="carrello.css">
+<style>
+
+	.card-header{
+	
+		background-color: #3b3e23;
+		color:white;
+		text-weight:bold;
+	
+	}
+	
+</style>
 
 <script src="JavaScript/registration.js"></script>
 </head>
@@ -63,25 +75,23 @@
 
 <div class= "form-group">
 
-	<label>Nome</label>
+	<label><b>Nome</b></label>
 	<input type="text" class ="form-control" name="login-name" placeholder ="Inserisci il tuo nome" required>
-
-	<label>Indirizzo E-mail</label>
-	<input type = "email" class = "form-control" name = "login-email" placeholder = "Inserisci la tua E-mail" required>
-
 </div>
 
 <div class= "form-group">
+	<label><b>Indirizzo E-mail</b></label>
+	<input type = "email" class = "form-control" name = "login-email" placeholder = "Inserisci la tua E-mail" required>
+</div>
 
-	<label>Password</label>
+<div class= "form-group">
+	<label><b>Password</b></label>
 	<input type = "password" class = "form-control" name = "login-password" placeholder = "*******" required>
-
 </div>
 
 <div class = "text-center">
 	
-	
-	<button type = "submit" class = "btn btn-primary" onclick ="funzione(this)" > Register </button>
+	<button type = "submit" class = "link_bottone" onclick ="funzione(this)" >&nbsp;&nbsp;&nbsp;Register&nbsp;&nbsp;&nbsp;</button>
 </div>
 </form>
 

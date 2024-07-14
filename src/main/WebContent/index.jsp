@@ -37,7 +37,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Uliveto</title>
+<link rel="stylesheet" href="carrello.css">
 <%@include file = "includes/header.jsp" %>
+
+<style>
+
+	.card-header{
+	
+		background-color: #3b3e23;
+		color:white;
+		text-weight:bold;
+	
+	}
+	
+</style>
+
 </head>
 <body>
 <%@include file = "includes/navbar_nuova.jsp" %>

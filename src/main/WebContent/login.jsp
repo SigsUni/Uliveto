@@ -77,14 +77,14 @@
 
 <div class= "form-group">
 
-	<label>Indirizzo E-mail</label>
+	<label><b>Indirizzo E-mail</b></label>
 	<input type = "email" class = "form-control" name = "login-email" placeholder = "Inserisci la tua E-mail" required>
 
 </div>
 
 <div class= "form-group">
 
-	<label>Password</label>
+	<label><b>Password</b></label>
 	<input type = "password" class = "form-control" name = "login-password" placeholder = "*******" required>
 
 </div>
@@ -92,10 +92,10 @@
 <div class = "text-center">
 	
 	
-	<button type = "submit" class = "btn btn-primary"> Login </button>
+	<button type = "submit" class = "link_bottone"> &nbsp;&nbsp;Login&nbsp;&nbsp; </button>
 </div>
 
-<a class="text-left" href="register.jsp"><i>Non sei ancora registrato?</i></a>
+<a class="link_register" href="register.jsp"><i>Non sei ancora registrato?</i></a>
 </form>
 
 </div>
