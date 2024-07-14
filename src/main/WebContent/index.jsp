@@ -49,7 +49,6 @@
 		text-weight:bold;
 	
 	}
-	
 </style>
 
 </head>
@@ -79,24 +78,92 @@
 		%>
 			
 			<div class="col-12 col-md-6 col-lg-4 gy-3">
-			<div class="card w-100" style="width: 8rem;">
+			<div class="w-100 carta" style="width: 8rem;">
 				<a href="#">
-  				<img class="card-img-top" src="product-images/<%= p.getImage() %>" alt="Card image cap"></a>
+				<%if(p.getStock()!=0){ %>
+  				<img class="card-img-top carta_immagine" src="product-images/<%= p.getImage() %>" alt="Card image cap"></a>
+  				<%}else{%>
+  				<img class="card-img-top carta_immagine bw-image" src="product-images/<%= p.getImage() %>" alt="Card image cap"></a>
+  				<%} %>
   					<div class="card-body">
     				<h5 class="card-title"><%= p.getName() %></h5>
-    				<h6 class = "price">Prezzo €<%= p.getPrice() %></h6>
-    				<h6 class = "category">Categoria: <%= p.getCategory() %></h6>
-    				<h6 class = "stock">Stock: <% if(p.getStock()!=0){%> <%= p.getStock()%> <%}else{ %><b><font color="red" >Out of Stock</font></b><%} %></h6>
-    				<div class = "mt-3 justify-content -between ">
+    				<h6 class = "price"><b>Prezzo</b> €<%= p.getPrice() %></h6>
+    				<h6 class = "category"><b>Categoria:</b> <%= p.getCategory() %></h6>
+    				<h6 class = "stock"><b>Stock:</b> <% if(p.getStock()!=0){%> <%= p.getStock()%> <%}else{ %><b><font color="red" >Out of Stock</font></b><%} %></h6>
+    				<div class = "mt-3 justify-content -between bordo">
     				<%if(p.getStock()!=0){ %>
-    					<a href="add-to-cart?id=<%= p.getId() %>" class="btn btn-dark col-md-8 ">Aggiungi al carrello</a>
-    					<a href="order-now?quantity=1&id=<%=p.getId()%>" class="btn btn-primary ">Compra</a>
+    					<a href="add-to-cart?id=<%= p.getId() %>" class="link_bottone_index">Aggiungi al carrello</a>
+    					<a href="order-now?quantity=1&id=<%=p.getId()%>" class="link_bottone_rimuovi_index ">Compra</a>
     				</div>
     				<div class = "mt-3 justify-content -between ">
     				<p class="card-text"><%=p.getDescription() %></p>
     				</div>
     				<%}else{ %>
     				
+    				<a href="#" onclick="event.preventDefault();" class="link_bottone_index red">Aggiungi al carrello</a>
+    				<a href="#" onclick="event.preventDefault();" class="link_bottone_rimuovi_index red">Compra</a>
+    			
+    				</div>
+    				<div class = "mt-3 justify-content -between ">
+    				<p class="card-text"><%=p.getDescription() %></p>
+    				</div>
+    				<%} %>
+    				
+  				</div>
+			</div>
+		</div>
+			
+		<%
+			}
+		}
+	}
+	
+	%>
+	
+	</div>
+	
+	<div class = "card-header my-3">I NOSTRI ORCI</div>
+	
+	<div class="row g-3">
+	
+	<% 
+	
+	products = pd.getAllProducts();
+	
+	if(!products.isEmpty())
+	{
+		for(Prodotto p:products)
+		{
+			if(p.getCategory().equals("orci"))
+			{
+		%>
+			
+			<div class="col-12 col-md-6 col-lg-4 gy-3">
+			<div class="w-100 carta" style="width: 8rem;">
+				<a href="#">
+				<%if(p.getStock()!=0){ %>
+  				<img class="card-img-top carta_immagine" src="product-images/<%= p.getImage() %>" alt="Card image cap"></a>
+  				<%}else{%>
+  				<img class="card-img-top carta_immagine bw-image" src="product-images/<%= p.getImage() %>" alt="Card image cap"></a>
+  				<%} %>
+  					<div class="card-body">
+    				<h5 class="card-title"><%= p.getName() %></h5>
+    				<h6 class = "price"><b>Prezzo</b> €<%= p.getPrice() %></h6>
+    				<h6 class = "category"><b>Categoria:</b> <%= p.getCategory() %></h6>
+    				<h6 class = "stock"><b>Stock:</b> <% if(p.getStock()!=0){%> <%= p.getStock()%> <%}else{ %><b><font color="red" >Out of Stock</font></b><%} %></h6>
+    				<div class = "mt-3 justify-content -between bordo">
+    				<%if(p.getStock()!=0){ %>
+    					<a href="add-to-cart?id=<%= p.getId() %>" class="link_bottone_index">Aggiungi al carrello</a>
+    					<a href="order-now?quantity=1&id=<%=p.getId()%>" class="link_bottone_rimuovi_index ">Compra</a>
+    				</div>
+    				<div class = "mt-3 justify-content -between ">
+    				<p class="card-text"><%=p.getDescription() %></p>
+    				</div>
+    				<%}else{ %>
+    				
+    				<a href="#" onclick="event.preventDefault();" class="link_bottone_index red">Aggiungi al carrello</a>
+    				<a href="#" onclick="event.preventDefault();" class="link_bottone_rimuovi_index red">Compra</a>
+    			
     				</div>
     				<div class = "mt-3 justify-content -between ">
     				<p class="card-text"><%=p.getDescription() %></p>
@@ -135,24 +202,31 @@
 		%>
 			
 			<div class="col-12 col-md-6 col-lg-4 gy-3">
-			<div class="card w-100" style="width: 8rem;">
+			<div class="w-100 carta" style="width: 8rem;">
 				<a href="#">
-  				<img class="card-img-top" src="product-images/<%= p.getImage() %>" alt="Card image cap"></a>
+				<%if(p.getStock()!=0){ %>
+  				<img class="card-img-top carta_immagine" src="product-images/<%= p.getImage() %>" alt="Card image cap"></a>
+  				<%}else{%>
+  				<img class="card-img-top carta_immagine bw-image" src="product-images/<%= p.getImage() %>" alt="Card image cap"></a>
+  				<%} %>
   					<div class="card-body">
     				<h5 class="card-title"><%= p.getName() %></h5>
-    				<h6 class = "price">Prezzo €<%= p.getPrice() %></h6>
-    				<h6 class = "category">Categoria: <%= p.getCategory() %></h6>
-    				<h6 class = "stock">Stock: <% if(p.getStock()!=0){%> <%= p.getStock()%> <%}else{ %><b><font color="red" >Out of Stock</font></b><%} %></h6>
-    				<div class = "mt-3 justify-content -between ">
+    				<h6 class = "price"><b>Prezzo</b> €<%= p.getPrice() %></h6>
+    				<h6 class = "category"><b>Categoria:</b> <%= p.getCategory() %></h6>
+    				<h6 class = "stock"><b>Stock:</b> <% if(p.getStock()!=0){%> <%= p.getStock()%> <%}else{ %><b><font color="red" >Out of Stock</font></b><%} %></h6>
+    				<div class = "mt-3 justify-content -between bordo">
     				<%if(p.getStock()!=0){ %>
-    					<a href="add-to-cart?id=<%= p.getId() %>" class="btn btn-dark col-md-8 ">Aggiungi al carrello</a>
-    					<a href="order-now?quantity=1&id=<%=p.getId()%>" class="btn btn-primary ">Compra</a>
+    					<a href="add-to-cart?id=<%= p.getId() %>" class="link_bottone_index">Aggiungi al carrello</a>
+    					<a href="order-now?quantity=1&id=<%=p.getId()%>" class="link_bottone_rimuovi_index ">Compra</a>
     				</div>
     				<div class = "mt-3 justify-content -between ">
     				<p class="card-text"><%=p.getDescription() %></p>
     				</div>
     				<%}else{ %>
     				
+    				<a href="#" onclick="event.preventDefault();" class="link_bottone_index red">Aggiungi al carrello</a>
+    				<a href="#" onclick="event.preventDefault();" class="link_bottone_rimuovi_index red">Compra</a>
+    			
     				</div>
     				<div class = "mt-3 justify-content -between ">
     				<p class="card-text"><%=p.getDescription() %></p>
@@ -162,6 +236,7 @@
   				</div>
 			</div>
 		</div>
+			
 		<%
 			}
 		}
@@ -169,8 +244,8 @@
 	
 	%>
 	
-	</div>
-
+</div>
+</div>
 
 <%@include file = "includes/footer.jsp" %>
 </body>

@@ -95,3 +95,65 @@ h3{
 	color:white;
 	text-decoration:none;
 }
+
+
+
+.carta{
+	border: 0.2rem solid #3b3e23;
+	margin-bottom: 8%;
+}
+
+.carta_immagine{
+	border-bottom: 0.2rem solid #3b3e23;
+}
+	
+.bw-image {
+            filter: grayscale(100%);
+}
+
+
+.link_bottone_rimuovi_index
+{
+	padding: 0.86rem;
+	color: black;
+	margin-left:2%;
+	background-color:#ffc300;
+	text-decoration:none;
+}
+
+.link_bottone_index{
+	
+	padding: 0.86rem;
+	background-color: #3b3e23;
+	color: white;
+	
+}
+
+.link_bottone_rimuovi_index:hover
+{
+	color:white;
+	text-decoration:none;
+}
+
+.link_bottone_index:hover
+{
+	color:white;
+	text-decoration:none;
+}
+.red
+{
+	background-color: red;
+	color:black;
+}
+
+.red:hover
+{
+	color:black;
+}
+
+.bordo
+{
+	margin-bottom: 15%;
+	
+}
+
