@@ -40,9 +40,9 @@ response.setContentType("text/html; charset= UTF-8");
 		
 		try (PrintWriter out = response.getWriter())
 		{
-			String name = request.getParameter("login-name");
-			String email = request.getParameter("login-email");
-			String password = request.getParameter("login-password");
+			String name = request.getParameter("login_nome");
+			String email = request.getParameter("login_email");
+			String password = request.getParameter("login_password");
 			
 			
 			try {

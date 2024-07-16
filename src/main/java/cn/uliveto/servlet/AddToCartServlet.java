@@ -60,7 +60,8 @@ public class AddToCartServlet extends HttpServlet {
 				{
 					cartList.add(cm);
 					session.setAttribute("cart-list", cartList);
-					response.sendRedirect(getServletInfo());
+					response.sendRedirect("index.jsp");
+					
 				}
 				else
 				{
@@ -85,6 +86,7 @@ public class AddToCartServlet extends HttpServlet {
 						response.sendRedirect("index.jsp");
 					}
 				}
+				response.sendRedirect("index.jsp");
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

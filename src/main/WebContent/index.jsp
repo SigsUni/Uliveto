@@ -99,10 +99,9 @@
     				<p class="card-text"><%=p.getDescription() %></p>
     				</div>
     				<%}else{ %>
-    				
-    				<a href="#" onclick="event.preventDefault();" class="link_bottone_index red">Aggiungi al carrello</a>
-    				<a href="#" onclick="event.preventDefault();" class="link_bottone_rimuovi_index red">Compra</a>
-    			
+    				<p class="card-text"><b><font color="red" >ACQUISTO NON DISPONIBILE</font></b></p>
+    				<!-- <a href="#" onclick="event.preventDefault();" class="link_bottone_index red">Aggiungi al carrello</a>
+    				<a href="#" onclick="event.preventDefault();" class="link_bottone_rimuovi_index red">Compra</a> -->
     				</div>
     				<div class = "mt-3 justify-content -between ">
     				<p class="card-text"><%=p.getDescription() %></p>
@@ -161,9 +160,8 @@
     				</div>
     				<%}else{ %>
     				
-    				<a href="#" onclick="event.preventDefault();" class="link_bottone_index red">Aggiungi al carrello</a>
-    				<a href="#" onclick="event.preventDefault();" class="link_bottone_rimuovi_index red">Compra</a>
-    			
+    				<p class="card-text"><b><font color="red" >ACQUISTO NON DISPONIBILE</font></b></p>
+    				
     				</div>
     				<div class = "mt-3 justify-content -between ">
     				<p class="card-text"><%=p.getDescription() %></p>
@@ -224,9 +222,9 @@
     				</div>
     				<%}else{ %>
     				
-    				<a href="#" onclick="event.preventDefault();" class="link_bottone_index red">Aggiungi al carrello</a>
-    				<a href="#" onclick="event.preventDefault();" class="link_bottone_rimuovi_index red">Compra</a>
-    			
+    				<p class="card-text"><b><font color="red" >ACQUISTO NON DISPONIBILE</font></b></p>
+    				
+    				
     				</div>
     				<div class = "mt-3 justify-content -between ">
     				<p class="card-text"><%=p.getDescription() %></p>

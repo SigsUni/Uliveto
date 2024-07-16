@@ -48,7 +48,50 @@
 	
 </style>
 
-<script src="JavaScript/registration.js"></script>
+<script>
+
+
+function Check()
+{
+    var nome = document.modulo.login_nome.value;
+    var email = document.modulo.login_email.value;
+    var password = document.modulo.login_password.value;
+    var password2 = document.modulo.login_password_confirm.value;
+	
+    if ((nome == "") || (nome == "undefined")) {
+    	alert("Il campo Nome è obbligatorio.");
+    	document.modulo.login_nome.focus();
+    	return false;
+    	}
+    
+    if(password.length < 8)
+    {
+    	alert("La password deve contenere almeno 8 caratteri");
+    	document.modulo.login_password.focus();
+    	return false;
+    }
+    
+    if (password != password2) {
+    	alert("La password confermata è diversa da quella scelta, controllare.");
+    	document.modulo.login_password_confirm.value = "";
+    	document.modulo.login_password_confirm.focus();
+    	return false;
+    	}
+    var email_reg_exp = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-]{2,})+.)+([a-zA-Z0-9]{2,})+$/;
+    
+    if (!email_reg_exp.test(email) || (email == "") || (email == "undefined")) {
+    	alert("Inserire un indirizzo email corretto.");
+    	document.modulo.login_email.select();
+    	return false;
+    	}
+    
+    
+    document.modulo.submit();
+    return true;
+}
+
+
+</script>
 </head>
 <body>
 <%@include file = "includes/navbar_nuova.jsp" %>
@@ -71,27 +114,32 @@
 	<!-- card body --> 
 	
 
-<form action ="user-register" method = "POST" >
+<form action ="user-register" method = "POST" name="modulo">
 
 <div class= "form-group">
 
 	<label><b>Nome</b></label>
-	<input type="text" class ="form-control" name="login-name" placeholder ="Inserisci il tuo nome" required>
+	<input type="text" class ="form-control" name="login_nome" placeholder ="Inserisci il tuo Nome">
 </div>
 
 <div class= "form-group">
 	<label><b>Indirizzo E-mail</b></label>
-	<input type = "email" class = "form-control" name = "login-email" placeholder = "Inserisci la tua E-mail" required>
+	<input type = "email" class = "form-control" name = "login_email" placeholder = "Inserisci la tua E-mail">
 </div>
 
 <div class= "form-group">
 	<label><b>Password</b></label>
-	<input type = "password" class = "form-control" name = "login-password" placeholder = "*******" required>
+	<input type = "password" class = "form-control" name = "login_password" placeholder = "*******">
+</div>
+
+<div class= "form-group">
+	<label><b>Confirm Password</b></label>
+	<input type = "password" class = "form-control" name = "login_password_confirm" placeholder = "*******">
 </div>
 
 <div class = "text-center">
 	
-	<button type = "submit" class = "link_bottone" onclick ="funzione(this)" >&nbsp;&nbsp;&nbsp;Register&nbsp;&nbsp;&nbsp;</button>
+	<button type = "button" class = "link_bottone" onClick ="return Check()" >&nbsp;&nbsp;&nbsp;Register&nbsp;&nbsp;&nbsp;</button>
 </div>
 </form>
 
